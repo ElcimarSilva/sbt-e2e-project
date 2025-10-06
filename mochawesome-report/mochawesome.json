@@ -1,0 +1,112 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-10-06T16:58:42.612Z",
+    "end": "2025-10-06T16:58:45.748Z",
+    "duration": 3136,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "eafb5a1f-93d9-432e-b6e2-52ff5b687589",
+      "title": "",
+      "fullFile": "cypress/e2e/news/news-page.cy.js",
+      "file": "cypress/e2e/news/news-page.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "baba5ff7-8eb5-40cf-91ab-1ec6d2c50309",
+          "title": "Smoke tests on news page TheVoice",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "deve verificar os principais elementos",
+              "fullTitle": "Smoke tests on news page TheVoice deve verificar os principais elementos",
+              "timedOut": null,
+              "duration": 995,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('[aria-label=\"Novidades\"]').should('be.visible');\n// cy.get('[class=\"border-b border-white/10 pb-6 last:border-0 last:pb-0').should('be.visible');",
+              "err": {},
+              "uuid": "7a5d16b7-dfca-4ebb-be19-2e7512e56365",
+              "parentUUID": "baba5ff7-8eb5-40cf-91ab-1ec6d2c50309",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "7a5d16b7-dfca-4ebb-be19-2e7512e56365"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 995,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reporters": [
+          {
+            "reporter": "mochawesome",
+            "reporterOptions": {
+              "reportDir": "reports/mocha",
+              "overwrite": true,
+              "html": false,
+              "json": true
+            }
+          }
+        ]
+      },
+      "version": "6.3.0"
+    }
+  }
+}

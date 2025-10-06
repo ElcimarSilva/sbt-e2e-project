@@ -1,0 +1,30 @@
+{
+  "name": "sbt-e2e-project",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "cy:open": "cypress open",
+    "cy:run": "cypress run --browser chrome",
+    "cy:run:headed": "cypress run --browser chrome --headed",
+    "cy:run:desktop": "cypress run --browser chrome --headed --config viewportWidth=1366,viewportHeight=768",
+    "cy:run:mobile": "cypress run --browser chrome --headed --config viewportWidth=390,viewportHeight=844,userAgent=Mozilla/5.0 (iPhone; CPU iPhone OS 16_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.0 Mobile/15E148 Safari/604.1",
+    "cy:lambdatest": "lambdatest-cypress run",
+    "report:merge": "mochawesome-merge reports/mocha/*.json > reports/mocha/mochawesome.json",
+    "report:html": "marge reports/mocha/mochawesome.json -f index -o reports/mocha",
+    "report:all": "npm run report:merge && npm run report:html"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@shelex/cypress-allure-plugin": "^2.41.2",
+    "cypress": "^15.3.0",
+    "cypress-multi-reporters": "^2.0.5",
+    "lambdatest-cypress-cli": "^3.0.42",
+    "mochawesome": "^7.1.4",
+    "mochawesome-merge": "^5.0.0",
+    "mochawesome-report-generator": "^6.3.0"
+  }
+}

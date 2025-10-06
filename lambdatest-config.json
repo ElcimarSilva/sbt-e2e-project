@@ -1,0 +1,23 @@
+{
+  "lambdatest_auth": {
+    "username": "${LT_USERNAME}",
+    "access_key": "${LT_ACCESS_KEY}"
+  },
+  "browsers": [
+    {
+      "browser": "Chrome",
+      "platform": "Windows 10",
+      "versions": ["latest"]
+    }
+  ],
+  "run_settings": {
+    "cypress_config_file": "cypress.config.js",
+    "build_name": "Build Cypress LambdaTest",
+    "project_name": "Meu Projeto QA",
+    "parallels": 1,
+    "specs": ["cypress/e2e/**/*.cy.js"]
+  },
+  "tunnel_settings": {
+    "tunnel": false
+  }
+}

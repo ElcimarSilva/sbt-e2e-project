@@ -1,0 +1,106 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-10-06T17:38:18.305Z",
+    "end": "2025-10-06T17:38:21.877Z",
+    "duration": 3572,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "1ed91a86-56ab-4a72-8d94-5cd1fb400aba",
+      "title": "",
+      "fullFile": "cypress/e2e/technicians/smoke-test-tech-page.cy.js",
+      "file": "cypress/e2e/technicians/smoke-test-tech-page.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "93d1c321-15c3-4c3d-bf3f-136e1594a55c",
+          "title": "Smoke tests on technicians page TheVoice",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "deve verificar os principais elementos",
+              "fullTitle": "Smoke tests on technicians page TheVoice deve verificar os principais elementos",
+              "timedOut": null,
+              "duration": 1090,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('[class=\"grid grid-cols-1 sm:landscape:grid-cols-2 gap-8 md:gap-16 md:p-4 xl:p-0\"]').should('be.visible');\ncy.get('[class=\"flex flex-col gap-2 rounded-lg shadow-lg\"]').should('have.length', 4);",
+              "err": {},
+              "uuid": "b6cf474f-64b0-4780-99fe-367aece1d0b0",
+              "parentUUID": "93d1c321-15c3-4c3d-bf3f-136e1594a55c",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "b6cf474f-64b0-4780-99fe-367aece1d0b0"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 1090,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "id": "default",
+        "reportDir": "reports/mocha",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.3.0"
+    }
+  }
+}
