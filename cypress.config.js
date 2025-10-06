@@ -31,7 +31,7 @@ module.exports = defineConfig({
 	video: true,
 	retries: {
     	runMode: 2,
-    	openMode: 1,
+    	openMode: 0,
   },
 	screenshotsFolder: 'reports/screenshots',
 	videosFolder: 'reports/videos',

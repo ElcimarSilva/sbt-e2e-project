@@ -16,11 +16,6 @@ npm install
 - Relatórios `mochawesome` em `reports/mocha`. Ao final da execução, é gerado um `mochawesome.json` mesclado.
 - Vídeos em `reports/videos` e screenshots em `reports/screenshots`.
 
-Para gerar HTML a partir do JSON mesclado:
-```bash
-npx mochawesome-merge reports/mocha/*.json > reports/mocha/mochawesome.json
-npx marge reports/mocha/mochawesome.json -f index -o reports/mocha
-```
 
 ## Estrutura
 ```
@@ -30,6 +25,9 @@ cypress/
     exemplo_mobile.cy.js
   fixtures/
   support/
+    commands.js
+    /pages
+    /elements
     e2e.js
 cypress.config.js
 ```
@@ -39,6 +37,7 @@ cypress.config.js
 - Separação de testes por contexto (desktop/mobile)
 - `viewport` configurável por script
 - Reporter consolidado (mochawesome) + vídeos/prints habilitados
+- Escrita de código em inglês e escrita apenas dos casos de testes em PT-BR
 
 ## Dicas
 - Use `data-*` selectors para estabilidade dos testes.

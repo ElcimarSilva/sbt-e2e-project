@@ -10,4 +10,5 @@ describe('Smoke tests on technicians page TheVoice', () => {
         cy.get('[class="grid grid-cols-1 sm:landscape:grid-cols-2 gap-8 md:gap-16 md:p-4 xl:p-0"]').should('contain.text', 'Tecnicos');
         cy.get('[class="grid grid-cols-1 sm:landscape:grid-cols-2 gap-8 md:gap-16 md:p-4 xl:p-0"]').should('have.a.property', 'h1');
     });
+
 });

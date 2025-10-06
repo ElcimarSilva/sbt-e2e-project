@@ -5,7 +5,10 @@ describe('Tests on home page TheVoice', () => {
         cy.visit('https://thevoice-dev.sbtlab.io/');
     });
     it('deve verificar os principais elementos', () => {
-        cy.get('[class="hidden md:flex px-4 py-2 rounded-full bg-white/10 text-gray-50 text-md items-center gap-2 hover:bg-white/15 transition-colors"]').should('be.visible');
+        cy.get('[class="hidden md:flex px-4 py-2 rounded-full bg-white/10 text-gray-50 text-md items-center gap-2 hover:bg-white/15 transition-colors"]').should('be.visible')
+            .invoke('removeAttr', 'target') // evita abrir nova aba
+            .click();
+        cy.get('[class="ytp-cued-thumbnail-overlay-image"]').should('be.visible');
 
     });
 });
