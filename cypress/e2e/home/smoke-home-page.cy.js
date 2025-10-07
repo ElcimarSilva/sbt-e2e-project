@@ -17,7 +17,7 @@ describe('Smoke tests on home page TheVoice', () => {
         homePage.getBannerTitle().should('be.visible').should('contain.text', 'Teste banner 2');
     });
 
-    it.only('deve abrir a noticia ao clicar no card', () => {
+    it('deve abrir a noticia ao clicar no card', () => {
         homePage.clickFirstNewsImage();
         cy.url().should('include', 'https://thevoice-dev.sbtlab.io/noticias/tecnicos-do-the-voice-brasil-no-sbt-carisma-e-suficiente');
     });

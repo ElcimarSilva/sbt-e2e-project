@@ -7,7 +7,6 @@
     "cy:open": "cypress open",
     "cy:run": "cypress run --browser chrome",
     "cy:run:headed": "cypress run --browser chrome --headed",
-    "cy:run:desktop": "cypress run --browser chrome --headed --config viewportWidth=1366,viewportHeight=768",
     "cy:run:mobile": "cypress run --browser chrome --headed --config viewportWidth=390,viewportHeight=844 --spec 'cypress/e2e/mobile/**/*' ",
     "cy:open:mobile": "cypress open --browser chrome --config viewportWidth=390,viewportHeight=844",
     "cy:lambdatest": "lambdatest-cypress run",

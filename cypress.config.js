@@ -8,6 +8,7 @@ module.exports = defineConfig({
 	e2e: {
 		// baseUrl: 'https://example.cypress.io',
 		specPattern: 'cypress/e2e/**/*.cy.js',
+		excludeSpecPattern: 'cypress/e2e/mobile/**',
 		supportFile: 'cypress/support/e2e.js',
 			setupNodeEvents(on, config) {
 				// gerar JSON único do mochawesome e HTML agregado ao final da execução
@@ -32,7 +33,7 @@ module.exports = defineConfig({
 	retries: {
     	runMode: 2,
     	openMode: 0,
-  },
+  	},
 	screenshotsFolder: 'reports/screenshots',
 	videosFolder: 'reports/videos',
 	reporter: 'cypress-multi-reporters',
