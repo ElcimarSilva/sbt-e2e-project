@@ -1,12 +1,12 @@
-const { novidadesLabel } = require('../elements/newsElements');
+const { newsLabel } = require('../elements/newsElements');
 
 class NewsPage {
   visit() {
     cy.visit('https://thevoice-dev.sbtlab.io/novidades');
   }
 
-  getNovidadesLabel() {
-    return cy.get(novidadesLabel);
+  getNewsLabel() {
+    return cy.get(newsLabel);
   }
 }
 

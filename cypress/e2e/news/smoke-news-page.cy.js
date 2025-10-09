@@ -8,7 +8,7 @@ describe('Smoke tests on news page TheVoice', () => {
     });
 
     it('deve verificar os principais elementos', () => {
-        newsPage.getNovidadesLabel().should('be.visible');
+        newsPage.getNewsLabel().should('be.visible');
 
     });
 });

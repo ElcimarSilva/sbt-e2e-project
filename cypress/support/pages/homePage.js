@@ -5,7 +5,8 @@ const {
   bannerNext,
   firstNewsImageAlt,
   seeMoreContainer,
-  seeMoreItens
+  seeMoreItens,
+  playlistSession
 } = require('../elements/homeElements');
 
 class HomePage {
@@ -13,9 +14,9 @@ class HomePage {
     cy.visit('https://thevoice-dev.sbtlab.io/');
   }
 
-  getimageMainContainer() {
+  getImageMainContainer() {
     return cy.get(imageMainContainer);
-  }
+  };
 
   getNewsCards() {
     return cy.get(newsCard);
@@ -39,6 +40,10 @@ class HomePage {
 
   getSeeMoreItens() {
     return cy.get(seeMoreItens);
+  }
+
+  getPlaylistSession() {
+    return cy.get(playlistSession);
   }
 }
 

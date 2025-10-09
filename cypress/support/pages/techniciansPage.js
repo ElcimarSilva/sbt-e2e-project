@@ -1,4 +1,4 @@
-const { layoutGrid, technicianCard } = require('../elements/techniciansElements');
+const { layoutGrid, technicianCard, titleTopPage } = require('../elements/techniciansElements');
 
 class TechniciansPage {
   visit() {
@@ -11,6 +11,10 @@ class TechniciansPage {
 
   getTechnicianCards() {
     return cy.get(technicianCard);
+  }
+
+  getTitleTopPage() {
+    return cy.get(titleTopPage);
   }
 }
 
