@@ -1,9 +1,11 @@
 const {
-  heroContainer,
+  imageMainContainer,
   newsCard,
   bannerTitle,
   bannerNext,
   firstNewsImageAlt,
+  seeMoreContainer,
+  seeMoreItens
 } = require('../elements/homeElements');
 
 class HomePage {
@@ -11,8 +13,8 @@ class HomePage {
     cy.visit('https://thevoice-dev.sbtlab.io/');
   }
 
-  getHeroContainer() {
-    return cy.get(heroContainer);
+  getimageMainContainer() {
+    return cy.get(imageMainContainer);
   }
 
   getNewsCards() {
@@ -29,6 +31,14 @@ class HomePage {
 
   clickFirstNewsImage() {
     return cy.get(firstNewsImageAlt).first().click();
+  }
+
+  getSeeMoreContainer() {
+    return cy.get(seeMoreContainer);
+  }
+
+  getSeeMoreItens() {
+    return cy.get(seeMoreItens);
   }
 }
 
