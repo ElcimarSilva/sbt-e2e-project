@@ -1,5 +1,7 @@
 const {
   imageMainContainer,
+  firstImageMainContainer,
+  secondImageMainContainer,
   newsCard,
   bannerTitle,
   bannerNext,
@@ -44,6 +46,14 @@ class HomePage {
 
   getPlaylistSession() {
     return cy.get(playlistSession);
+  }
+
+  getFirstImageMainContainer() {
+    return cy.get(firstImageMainContainer);
+  }
+
+  getSecondImageMainContainer() {
+    return cy.get(secondImageMainContainer);
   }
 }
 

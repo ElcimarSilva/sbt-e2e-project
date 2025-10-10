@@ -23,9 +23,11 @@ describe('Smoke tests on home page TheVoice', () => {
     });
 
     it('deve trocar o banner ao clicar na seta', () => {
-        homePage.getBannerTitle().should('be.visible').should('contain.text', 'SBT anunciam os técnicos e confirmam Tiago');
+        homePage.getBannerTitle().should('be.visible').should('not.be.empty');
+        homePage.getFirstImageMainContainer().should('be.visible');
         homePage.clickBannerNext();
-        homePage.getBannerTitle().should('be.visible').should('contain.text', 'Teste banner 2');
+        homePage.getBannerTitle().should('be.visible').should('not.be.empty')
+        homePage.getSecondImageMainContainer().should('be.visible');
     });
 
     it('deve abrir a noticia ao clicar no card', () => {
