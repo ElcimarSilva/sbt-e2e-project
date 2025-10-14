@@ -5,10 +5,13 @@ const {
   newsCard,
   bannerTitle,
   bannerNext,
-  firstNewsImageAlt,
+  allNews,
   seeMoreContainer,
   seeMoreItens,
-  playlistSession
+  playlistSession,
+  newsSession,
+  videoSessionPlaylist,
+  videoSession
 } = require('../elements/homeElements');
 
 class HomePage {
@@ -33,7 +36,7 @@ class HomePage {
   }
 
   clickFirstNewsImage() {
-    return cy.get(firstNewsImageAlt).first().click();
+    return cy.get(allNews).first().click();
   }
 
   getSeeMoreContainer() {
@@ -54,6 +57,18 @@ class HomePage {
 
   getSecondImageMainContainer() {
     return cy.get(secondImageMainContainer);
+  }
+
+  getSessionNews() {
+    return cy.get(newsSession);
+  }
+
+  getVideoSessionPlaylist() {
+    return cy.get(videoSessionPlaylist);
+  }
+
+  getVideoSession() {
+    return cy.get(videoSession).first();
   }
 }
 

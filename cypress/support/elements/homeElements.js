@@ -9,8 +9,11 @@ module.exports = {
   newsCard: '[class="border-b border-white/10 pb-6 last:border-0 last:pb-0"]',
   bannerTitle: '[class="w-full flex items-center text-white text-lg mobile-landscape:max-h-30 mobile-landscape:min-h-30 h-30 min-h-30 md:text-2xl font-semibold leading-tight overflow-hidden max-h-64"]',
   bannerNext: '.banner [aria-label="Próximo"]',
-  firstNewsImageAlt: '[alt="Técnicos do The Voice Brasil no SBT: carisma é suficiente?"]',
+  allNews: '[class="group/notice w-full transition-transform duration-200 ease-out hover:-translate-y-0.5"]',
   seeMoreContainer: '[class="flex rounded-sm border border-gray-800 flex-col bg-[#111] gap-4 p-4"]',
   seeMoreItens: '.rounded-sm.gap-4 div article',
-  playlistSession: '.space-y-6 > .gap-8 > :nth-child(3)',
+  playlistSession: '[class="flex rounded-sm border border-gray-800 flex-col bg-[#111] p-4"]',
+  newsSession: '[class="flex flex-col gap-3"]',
+  videoSessionPlaylist: '[aria-label="Video player"]',
+  videoSession: '[class="flex flex-col gap-4"]',
 };

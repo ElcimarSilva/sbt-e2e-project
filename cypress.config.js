@@ -27,6 +27,7 @@ module.exports = defineConfig({
 				return config;
 			},
 	},
+	experimentalStudio: true,
 	viewportWidth: 1366,
 	viewportHeight: 768,
 	video: true,

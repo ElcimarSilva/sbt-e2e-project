@@ -32,34 +32,28 @@ describe('Smoke tests on home page TheVoice', () => {
 
     it('deve abrir a noticia ao clicar no card', () => {
         homePage.clickFirstNewsImage();
-        cy.url().should('include', 'https://thevoice-dev.sbtlab.io/noticias/tecnicos-do-the-voice-brasil-no-sbt-carisma-e-suficiente');
+        cy.url().should('include', 'https://thevoice-dev.sbtlab.io/noticias/');
+        homePage.getSessionNews().should('be.visible').and('not.be.empty');
+        homePage.getSessionNews().find('span').should('be.visible').and('not.be.empty');
+        homePage.getSessionNews().find('h1').should('be.visible').and('not.be.empty');
+        homePage.getSessionNews().find('h2').should('be.visible').and('not.be.empty');
     });
 
     it('deve abrir um item da playlist ao clicar', () => {
+        homePage.getPlaylistSession().should('be.visible')
+            .and('contain.text', 'Playlists').and('contain.text', 'Ver tudo');
+         homePage.getPlaylistSession().find('figure').first().click();
+         cy.url().should('include', 'https://thevoice-dev.sbtlab.io/playlists/');
+        homePage.getVideoSessionPlaylist().should('be.visible')
+        homePage.getVideoSessionPlaylist().find('youtube-video').should('be.visible').and('have.attr', 'src');
+        homePage.getVideoSessionPlaylist().find('h2').should('be.visible').and('not.be.empty');
 
     });
 
     it('deve verificar e abrir um video na sessão videos', () => {
-
-    });
-
-    it('deve verificar o funcionamento da sessão de reels', () => {
-
-    });
-
-    it('deve abrir a politica de privacidade', () => {
-
-    });
-
-    it('deve abrir os termos de uso', () => {
-
-    });
-    it('deve abrir um item da playlist ao clicar', () => {
-
-    });
-
-    it('deve verificar e abrir um video na sessão videos', () => {
-
+        homePage.getVideoSession().should('be.visible')
+        homePage.getVideoSession().find('a').and('have.attr', 'href', '/videos').and('contain.text', 'Ver tudo');
+        homePage.getVideoSession().find('.snap-start').find('a').should('be.visible').and('have.attr', 'href').and('not.be.empty');
     });
 
     it('deve verificar o funcionamento da sessão de reels', () => {
