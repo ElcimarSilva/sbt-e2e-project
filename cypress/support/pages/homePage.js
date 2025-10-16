@@ -11,7 +11,10 @@ const {
   playlistSession,
   newsSession,
   videoSessionPlaylist,
-  videoSession
+  videoSession,
+  reelsGrid,
+  rellsCarrouselNavButtonLeft,
+  rellsCarrouselNavButtonRight
 } = require('../elements/homeElements');
 
 class HomePage {
@@ -69,6 +72,22 @@ class HomePage {
 
   getVideoSession() {
     return cy.get(videoSession).first();
+  }
+
+  getReelsSession() {
+    return cy.get(videoSession).last();
+  }
+
+  getReelsGrid() {
+    return cy.get(reelsGrid);
+  }
+
+  getRellsCarrouselNavButtonLeft() {
+    return cy.get(rellsCarrouselNavButtonLeft);
+  }
+
+  getRellsCarrouselNavButtonRight() {
+    return cy.get(rellsCarrouselNavButtonRight);
   }
 }
 
