@@ -72,16 +72,15 @@ describe('Smoke tests on home page TheVoice', () => {
         homePage.getRellsCarrouselNavButtonLeft().should('be.visible');
     });
 
-    it('deve abrir um reel ao clicar', () => {
-        homePage.getReelsSession().find('figure').first().click();
-        cy.url().should('include', 'https://thevoice-dev.sbtlab.io/reels/');
-        homePage.getVideoSessionPlaylist().should('be.visible')
-        homePage.getVideoSessionPlaylist().find('youtube-video').should('be.visible').and('have.attr', 'src');
-        homePage.getVideoSessionPlaylist().find('h2').should('be.visible').and('not.be.empty');
-        
+    it('deve verificar um reels', () => {
+        homePage.getReelsGrid().should('be.visible').find('.w-full').first().should('be.visible').scrollIntoView().click();
+        homePage.getReelsGrid().should('be.visible').find('.w-full').first().find('iframe').should('be.visible').and('have.attr', 'src').and('not.be.empty');
     });
 
     it('deve abrir o instagram ao clicar em Ver tudo', () => {
+        cy.get('[href="https://www.instagram.com/thevoicebrasil"]').should('be.visible').invoke('removeAttr', 'target') // evita abrir nova aba
+        .click();
+        cy.url().should('include', 'https://www.instagram.com/thevoicebrasil');
     });
 
     it('deve abrir a politica de privacidade', () => {
