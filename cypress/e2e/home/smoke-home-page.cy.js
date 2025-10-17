@@ -87,8 +87,13 @@ describe('Smoke tests on home page TheVoice', () => {
         cy.url().should('include', 'https://www.instagram.com/thevoicebrasil');
     });
 
-    it('deve abrir a politica de privacidade', () => {
-
+    it.only('deve abrir a politica de privacidade', () => {
+        cy.intercept('GET', '**/politica-de-privacidade').as('getPolicy')
+        cy.get('footer').contains('privacidade').should('be.visible').and('have.attr', 'href')
+        cy.get('footer').contains('privacidade').invoke('removeAttr', 'target').click()
+        cy.wait('@getPolicy')
+        cy.url().should('include', 'https://www.sbt.com.br/politica-de-privacidade');
+        cy.get('#apolitica').should('be.visible')
     });
 
     it('deve abrir os termos de uso', () => {
