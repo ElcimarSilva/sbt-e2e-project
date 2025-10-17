@@ -14,7 +14,8 @@ const {
   videoSession,
   reelsGrid,
   rellsCarrouselNavButtonLeft,
-  rellsCarrouselNavButtonRight
+  rellsCarrouselNavButtonRight,
+  headerSession
 } = require('../elements/homeElements');
 
 class HomePage {
@@ -88,6 +89,10 @@ class HomePage {
 
   getRellsCarrouselNavButtonRight() {
     return cy.get(rellsCarrouselNavButtonRight);
+  }
+  
+  getHeaderSession() {
+    return cy.get(headerSession).find('nav a');
   }
 }
 

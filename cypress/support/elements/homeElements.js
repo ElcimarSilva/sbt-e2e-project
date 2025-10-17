@@ -19,4 +19,5 @@ module.exports = {
   reelsGrid: '[class="reels-grid"]',
   rellsCarrouselNavButtonLeft: '[aria-label="Scroll left"]',
   rellsCarrouselNavButtonRight: '[aria-label="Scroll right"]',
+  headerSession: 'header'
 };

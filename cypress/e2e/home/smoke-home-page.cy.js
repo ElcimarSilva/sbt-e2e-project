@@ -14,8 +14,12 @@ describe('Smoke tests on home page TheVoice', () => {
         cy.wait('@getTechnicians');
         cy.wait('@getTeams');
 
-
-        //TODO: verificar se no header estão aparecendo todos os links das paginas
+        homePage.getHeaderSession().should('be.visible')
+        homePage.getHeaderSession().should('contain.text', 'Home')
+        homePage.getHeaderSession().should('contain.text', 'Novidades')
+        homePage.getHeaderSession().should('contain.text', 'Técnicos')
+        homePage.getHeaderSession().should('contain.text', 'Times')
+        homePage.getHeaderSession().should('contain.text', 'Vídeos')
         homePage.getImageMainContainer().should('be.visible');
         homePage.getNewsCards().should('be.visible').should('have.length.gte', 4);
 
