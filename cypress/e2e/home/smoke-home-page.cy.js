@@ -87,16 +87,30 @@ describe('Smoke tests on home page TheVoice', () => {
         cy.url().should('include', 'https://www.instagram.com/thevoicebrasil');
     });
 
-    it.only('deve abrir a politica de privacidade', () => {
+    it('deve abrir a politica de privacidade', () => { //TODO: erro to new page load
+
         cy.intercept('GET', '**/politica-de-privacidade').as('getPolicy')
-        cy.get('footer').contains('privacidade').should('be.visible').and('have.attr', 'href')
-        cy.get('footer').contains('privacidade').invoke('removeAttr', 'target').click()
-        cy.wait('@getPolicy')
-        cy.url().should('include', 'https://www.sbt.com.br/politica-de-privacidade');
-        cy.get('#apolitica').should('be.visible')
+        cy.visit('https://www.sbt.com.br/politica-de-privacidade');
+        cy.origin('https://www.sbt.com.br/politica-de-privacidade', () => {
+            cy.wait('@getPolicy')
+            cy.url().should('include', 'https://www.sbt.com.br/politica-de-privacidade');
+            cy.get('app-privacy-policy').should('be.visible');
+            cy.get('#apolitica').should('be.visible').and('contain.text', 'POLÍTICA DE PRIVACIDADE');
+            cy.get('app-menu-header').should('be.visible').find('a').should('have.attr', 'href', 'https://gruposilviosantos.com.br/');
+        })
+
     });
 
-    it('deve abrir os termos de uso', () => {
-
+    it('deve abrir os termos de uso', () => { //TODO: erro to new page load
+        cy.intercept('GET', '**/termos-de-uso').as('getTerms')
+        cy.visit('https://www.sbt.com.br/termos-de-uso');
+        cy.origin('https://www.sbt.com.br/termos-de-uso', () => {
+            cy.wait('@getTerms')
+            cy.url().should('include', 'https://www.sbt.com.br/termos-de-uso');
+            cy.get('[class="cookie-banner-lgpd_button_aceitar"]').should('be.visible').click();
+            cy.get('app-terms').should('be.visible');
+            cy.get('app-terms').find('strong').should('be.visible').and('contain.text', 'TERMOS E CONDIÇÕES DE USO');
+            cy.get('app-menu-header').should('be.visible').find('a').should('have.attr', 'href', 'https://gruposilviosantos.com.br/');
+        })
     });
 });

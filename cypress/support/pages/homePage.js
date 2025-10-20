@@ -90,7 +90,7 @@ class HomePage {
   getRellsCarrouselNavButtonRight() {
     return cy.get(rellsCarrouselNavButtonRight);
   }
-  
+
   getHeaderSession() {
     return cy.get(headerSession).find('nav a');
   }
