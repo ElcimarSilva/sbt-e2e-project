@@ -6,7 +6,7 @@ describe('Smoke tests on home page TheVoice', () => {
         homePage.visit();
     });
 
-    it('deve verificar os principais elementos', () => {
+    it('Home - deve verificar os principais elementos', () => {
         cy.intercept('GET', '**/novidades/**').as('getNews');
         cy.intercept('GET', '**/tecnicos/**').as('getTechnicians');
         cy.intercept('GET', '**/times/**').as('getTeams');
@@ -28,7 +28,7 @@ describe('Smoke tests on home page TheVoice', () => {
         homePage.getPlaylistSession().should('be.visible').and('contain.text', 'Playlists');
     });
 
-    it('deve trocar o banner ao clicar na seta', () => {
+    it('Home - deve trocar o banner ao clicar na seta', () => {
         homePage.getBannerTitle().should('be.visible').should('not.be.empty');
         homePage.getFirstImageMainContainer().should('be.visible');
         homePage.clickBannerNext();
@@ -36,7 +36,16 @@ describe('Smoke tests on home page TheVoice', () => {
         homePage.getSecondImageMainContainer().should('be.visible');
     });
 
-    it('deve abrir a noticia ao clicar no card', () => {
+    it('Home - deve abrir a uma noticia da sessão Veja mais ', () => {
+        homePage.getSeeMoreContainer().find('article').first().scrollIntoView().should('be.visible').click()
+        cy.url().should('include', 'https://thevoice-dev.sbtlab.io/noticias/');
+        homePage.getSessionNews().should('be.visible').and('not.be.empty');
+        homePage.getSessionNews().find('span').should('be.visible').and('not.be.empty');
+        homePage.getSessionNews().find('h1').should('be.visible').and('not.be.empty');
+        homePage.getSessionNews().find('h2').should('be.visible').and('not.be.empty');
+    });
+
+    it('Home - deve abrir a noticia ao clicar no card', () => {
         homePage.clickFirstNewsImage();
         cy.url().should('include', 'https://thevoice-dev.sbtlab.io/noticias/');
         homePage.getSessionNews().should('be.visible').and('not.be.empty');
@@ -45,7 +54,7 @@ describe('Smoke tests on home page TheVoice', () => {
         homePage.getSessionNews().find('h2').should('be.visible').and('not.be.empty');
     });
 
-    it('deve abrir um item da playlist ao clicar', () => {
+    it('Home - deve abrir um item da playlist ao clicar', () => {
         homePage.getPlaylistSession().should('be.visible')
             .and('contain.text', 'Playlists').and('contain.text', 'Ver tudo');
          homePage.getPlaylistSession().find('figure').first().click();
@@ -56,7 +65,7 @@ describe('Smoke tests on home page TheVoice', () => {
 
     });
 
-    it('deve verificar e abrir um video na sessão videos', () => {
+    it('Home - deve verificar e abrir um video na sessão videos', () => {
         homePage.getVideoSession().should('be.visible')
         homePage.getVideoSession().find('a').and('have.attr', 'href', '/videos').and('contain.text', 'Ver tudo');
         homePage.getVideoSession().find('.snap-start').find('a').should('be.visible').and('have.attr', 'href').and('not.be.empty');
@@ -67,7 +76,7 @@ describe('Smoke tests on home page TheVoice', () => {
         homePage.getVideoSessionPlaylist().find('h2').should('be.visible').and('not.be.empty');
     });
 
-    it('deve verificar o funcionamento da sessão de reels', () => {
+    it('Home - deve verificar o funcionamento da sessão de reels', () => {
         homePage.getReelsSession().should('be.visible')
         homePage.getReelsSession().find('h2').should('be.visible').and('contain.text', 'Reels');
         homePage.getReelsSession().find('a').should('be.visible').and('contain.text', 'Ver tudo').and('have.attr', 'href').and('not.be.empty');
@@ -76,19 +85,18 @@ describe('Smoke tests on home page TheVoice', () => {
         homePage.getRellsCarrouselNavButtonLeft().should('be.visible');
     });
 
-    it('deve verificar um reels', () => {
+    it('Home - deve verificar um reels', () => {
         homePage.getReelsGrid().should('be.visible').find('.w-full').first().should('be.visible').scrollIntoView().click();
         homePage.getReelsGrid().should('be.visible').find('.w-full').first().find('iframe').should('be.visible').and('have.attr', 'src').and('not.be.empty');
     });
 
-    it('deve abrir o instagram ao clicar em Ver tudo', () => {
+    it('Home - deve abrir o instagram ao clicar em Ver tudo', () => {
         cy.get('[href="https://www.instagram.com/thevoicebrasil"]').should('be.visible').invoke('removeAttr', 'target') // evita abrir nova aba
         .click();
         cy.url().should('include', 'https://www.instagram.com/thevoicebrasil');
     });
 
-    it('deve abrir a politica de privacidade', () => { //TODO: erro to new page load
-
+    it('Home - deve abrir a politica de privacidade', () => { //TODO: erro to new page load
         cy.intercept('GET', '**/politica-de-privacidade').as('getPolicy')
         cy.visit('https://www.sbt.com.br/politica-de-privacidade');
         cy.origin('https://www.sbt.com.br/politica-de-privacidade', () => {
@@ -101,7 +109,7 @@ describe('Smoke tests on home page TheVoice', () => {
 
     });
 
-    it('deve abrir os termos de uso', () => { //TODO: erro to new page load
+    it('Home - deve abrir os termos de uso', () => { //TODO: erro to new page load
         cy.intercept('GET', '**/termos-de-uso').as('getTerms')
         cy.visit('https://www.sbt.com.br/termos-de-uso');
         cy.origin('https://www.sbt.com.br/termos-de-uso', () => {

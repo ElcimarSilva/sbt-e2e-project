@@ -1,4 +1,4 @@
-const { newsLabel } = require('../elements/newsElements');
+const { newsLabel, loadMoreNewsButton } = require('../elements/newsElements');
 
 class NewsPage {
   visit() {
@@ -7,6 +7,10 @@ class NewsPage {
 
   getNewsLabel() {
     return cy.get(newsLabel);
+  }
+
+  getLoadMoreNewsButton() {
+    return cy.get(loadMoreNewsButton);
   }
 }
 
