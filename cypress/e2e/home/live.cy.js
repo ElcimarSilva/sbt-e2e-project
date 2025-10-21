@@ -1,14 +1,19 @@
 
+const homePage = require('../../support/pages/homePage');
 describe('Tests on home page TheVoice', () => {
 
     beforeEach(() => {
         cy.visit('https://thevoice-dev.sbtlab.io/');
     });
     it('deve verificar o direcionamento para TV Ao vivo', () => {
-        cy.get('[class="hidden md:flex px-4 py-2 rounded-full bg-white/10 text-gray-50 text-md items-center gap-2 hover:bg-white/15 transition-colors"]').should('be.visible')
-            .invoke('removeAttr', 'target') // evita abrir nova aba
-            .click();
-        cy.get('[class="ytp-cued-thumbnail-overlay-image"]').should('be.visible');
+        homePage.getLiveButton().should('be.visible').and('have.attr', 'href', 'https://www.sbt.com.br/ao-vivo');
+
+        cy.visit('https://www.sbt.com.br/ao-vivo');
+        cy.origin('https://www.sbt.com.br/ao-vivo', () => {
+            cy.get('[class="cookie-banner-lgpd_button_aceitar"]').click();
+            cy.get('[class="live-video"]').should('be.visible')
+            cy.get('[class="live-video"]').find('iframe').should('have.attr', 'src');
+        });
 
     });
 });

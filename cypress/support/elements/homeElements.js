@@ -19,5 +19,6 @@ module.exports = {
   reelsGrid: '[class="reels-grid"]',
   rellsCarrouselNavButtonLeft: '[aria-label="Scroll left"]',
   rellsCarrouselNavButtonRight: '[aria-label="Scroll right"]',
-  headerSession: 'header'
+  headerSession: 'header',
+  liveButton: '[class="hidden md:flex px-4 py-2 rounded-full bg-white/10 text-gray-50 text-md items-center gap-2 hover:bg-white/15 transition-colors"]'
 };

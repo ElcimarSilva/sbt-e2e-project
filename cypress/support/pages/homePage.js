@@ -15,7 +15,8 @@ const {
   reelsGrid,
   rellsCarrouselNavButtonLeft,
   rellsCarrouselNavButtonRight,
-  headerSession
+  headerSession,
+  liveButton
 } = require('../elements/homeElements');
 
 class HomePage {
@@ -93,6 +94,10 @@ class HomePage {
 
   getHeaderSession() {
     return cy.get(headerSession).find('nav a');
+  }
+
+  getLiveButton() {
+    return cy.get(liveButton);
   }
 }
 
