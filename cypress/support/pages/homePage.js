@@ -44,6 +44,10 @@ class HomePage {
     return cy.get(allNews).first().click();
   }
 
+  getAllNews() {
+    return cy.get(allNews);
+  }
+
   getSeeMoreContainer() {
     return cy.get(seeMoreContainer);
   }
