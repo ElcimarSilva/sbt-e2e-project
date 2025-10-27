@@ -32,7 +32,9 @@ describe('Smoke tests on technicians page TheVoice', () => {
     });
 
     it('Technicians - deve verificar layout do card', () => {
-        techniciansPage.getTechnicianCards().find('img').should('be.visible');
+        techniciansPage.getTechnicianCards().find('img').should('be.visible').and(($img) => {
+        expect($img[0].naturalWidth).to.be.greaterThan(0);
+        });
         techniciansPage.getTechnicianCards().find('h3').should('be.visible').and('not.be.empty');
         techniciansPage.getTechnicianCards().find('p').should('be.visible').and('not.be.empty');
     });
