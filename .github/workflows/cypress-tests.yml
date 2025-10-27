@@ -1,0 +1,96 @@
+name: Cypress E2E Tests
+
+on:
+  workflow_dispatch:
+    inputs:
+      browser:
+        description: 'Navegador para executar os testes'
+        required: false
+        default: 'chrome'
+        type: choice
+        options:
+          - chrome
+          - firefox
+          - edge
+      config_file:
+        description: 'Arquivo de configuração específico'
+        required: false
+        default: 'cypress.config.js'
+        type: string
+      run_mobile_tests:
+        description: 'Executar testes mobile'
+        required: false
+        default: false
+        type: boolean
+
+jobs:
+  cypress-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout código
+        uses: actions/checkout@v4
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Instalar dependências
+        run: npm ci
+
+      - name: Verificar instalação do Cypress
+        run: npx cypress verify
+
+      - name: Executar testes Cypress (Desktop)
+        if: ${{ !inputs.run_mobile_tests }}
+        run: |
+          if [ "${{ inputs.config_file }}" = "cypress.config.js" ]; then
+            npm run cy:run
+          else
+            npx cypress run --browser ${{ inputs.browser }} --config-file=${{ inputs.config_file }}
+          fi
+        env:
+          CYPRESS_CACHE_FOLDER: ~/.cache/Cypress
+
+      - name: Executar testes Cypress (Mobile)
+        if: ${{ inputs.run_mobile_tests }}
+        run: npm run cy:run:mobile
+        env:
+          CYPRESS_CACHE_FOLDER: ~/.cache/Cypress
+
+      - name: Gerar relatórios consolidados
+        run: npm run report:all
+
+      - name: Upload relatórios HTML
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: cypress-reports
+          path: |
+            reports/mocha/
+            reports/screenshots/
+            reports/videos/
+          retention-days: 30
+
+      - name: Upload logs do Cypress
+        uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: cypress-logs
+          path: |
+            cypress/logs/
+            ~/.cache/Cypress/
+          retention-days: 7
+
+      - name: Comentar resultado dos testes
+        if: always()
+        run: |
+          if [ "${{ job.status }}" = "success" ]; then
+            echo "✅ Testes executados com sucesso!"
+            echo "📊 Relatórios disponíveis nos artifacts"
+          else
+            echo "❌ Falha na execução dos testes"
+            echo "📋 Verifique os logs nos artifacts"
+          fi
