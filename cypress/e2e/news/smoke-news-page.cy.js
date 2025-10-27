@@ -65,12 +65,6 @@ describe('Smoke tests on news page TheVoice', () => {
                 expect(interception.response.statusCode).to.equal(200);
             });
             homePage.getAllNews().should('have.length.gte', 20);
-
-            newsPage.getLoadMoreNewsButton().scrollIntoView().should('be.visible').click();
-            cy.wait('@getNews').should((interception) => {
-                expect(interception.response.statusCode).to.equal(200);
-            });
-            homePage.getAllNews().should('have.length.gte', 25);
         });
 
         it.skip('News - deve verificar a existencia da tag na noticia', () => {

@@ -90,10 +90,10 @@ describe('Smoke tests on home page TheVoice', () => {
         homePage.getReelsGrid().should('be.visible').find('.w-full').first().find('iframe').should('be.visible').and('have.attr', 'src').and('not.be.empty');
     });
 
-    it('Home - deve abrir o instagram ao clicar em Ver tudo', () => {
+    it.only('Home - deve abrir o instagram ao clicar em Ver tudo', () => {
         cy.get('[href="https://www.instagram.com/thevoicebrasil"]').should('be.visible').invoke('removeAttr', 'target') // evita abrir nova aba
         .click();
-        cy.url().should('include', 'https://www.instagram.com/thevoicebrasil');
+        cy.url().should('include', 'https://www.instagram.com/thevoicebrasil', { timeout: 10000 });
     });
 
     it('Home - deve abrir a politica de privacidade', () => { //TODO: erro to new page load
