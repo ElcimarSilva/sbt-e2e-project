@@ -7,7 +7,7 @@ describe('Smoke tests on teams page TheVoice', () => {
         teamsPage.visit();
     });
 
-    it.only('Teams - deve verificar os principais elementos', () => {
+    it('Teams - deve verificar os principais elementos', () => {
         cy.intercept('GET', '**/tecnicos/**').as('getTechnicians');
         cy.intercept('GET', '**/novidades/**').as('getNews');
         cy.intercept('GET', '**/videos/**').as('getVideos');

@@ -10,6 +10,10 @@ module.exports = defineConfig({
 		specPattern: 'cypress/e2e/**/*.cy.js',
 		excludeSpecPattern: 'cypress/e2e/mobile/**',
 		supportFile: 'cypress/support/e2e.js',
+		defaultCommandTimeout: 8000,
+		pageLoadTimeout: 12000,
+		requestTimeout: 10000,
+		responseTimeout: 40000,
 			setupNodeEvents(on, config) {
 				// gerar JSON único do mochawesome e HTML agregado ao final da execução
 				on('after:run', async () => {
