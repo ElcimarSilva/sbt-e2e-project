@@ -44,3 +44,8 @@ cypress.config.js
 - Utilize `cy.session` para autenticações repetíveis (Cypress 12+).
 - Evite `wait` fixo; prefira asserções encadeadas.
 EOF
+
+## Old Scripts
+- "report:merge": "mochawesome-merge reports/mocha/*.json > reports/mocha/mochawesome.json",
+- "report:html": "marge reports/mocha/mochawesome.json -f index -o reports/mocha",
+- "report:all": "npm run report:merge && npm run report:html"

@@ -9,10 +9,7 @@
     "cy:run:headed": "cypress run --browser chrome --headed",
     "cy:run:mobile": "cypress run --browser chrome --headed  --config-file=mobile.config.js ",
     "cy:open:mobile": "cypress open --config-file=mobile.config.js ",
-    "cy:lambdatest": "lambdatest-cypress run",
-    "report:merge": "mochawesome-merge reports/mocha/*.json > reports/mocha/mochawesome.json",
-    "report:html": "marge reports/mocha/mochawesome.json -f index -o reports/mocha",
-    "report:all": "npm run report:merge && npm run report:html"
+    "cy:lambdatest": "lambdatest-cypress run"
   },
   "keywords": [],
   "author": "",
