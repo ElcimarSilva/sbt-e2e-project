@@ -25,13 +25,18 @@ describe('Smoke tests on teams page TheVoice', () => {
 
     });
 
-    it('Teams - deve verificar o layout do card de cada time', () => {
-    });
-
-    it('Teams - deve verificar os links de direcionamento para instagram doo card', () => {
+    it('Teams - deve verificar o layout, texto e link do card de cada time', () => {
+        teamsPage.getImageSession().should('be.visible')
+        teamsPage.getImageSession().find('img').should('be.visible').and(($img) => { expect($img[0].naturalWidth).to.be.greaterThan(0);});
+        teamsPage.getImageSession().find('h3').should('be.visible').and('not.be.empty');
+        teamsPage.getImageSession().find('a').should('be.visible').and('have.attr', 'href').and('match', /^(https?:\/\/)?(www\.)?(instagram\.com)\/.+$/);
     });
 
     it('Teams - deve verificar o filtro por time', () => {
+        teamsPage.getWhiteButtonFiltered().should('contain.text', 'Todos');
+        teamsPage.getTeamsButtonFilter().contains('Duda Beat').should('be.visible').click();
+        teamsPage.getWhiteButtonFiltered().should('contain.text', 'Duda Beat');
+        teamsPage.getImageSession().find('.flex .flex-col').should('be.visible').and('have.length.gte', 2);
     });
 
 });
