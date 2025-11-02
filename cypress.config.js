@@ -3,6 +3,7 @@ const { merge } = require('mochawesome-merge');
 const { writeFileSync, mkdirSync } = require('fs');
 const marge = require('mochawesome-report-generator');
 const path = require('path');
+const { addMatchImageSnapshotPlugin } = require('@simonsmith/cypress-image-snapshot/plugin');
 
 module.exports = defineConfig({
 	e2e: {
@@ -15,6 +16,7 @@ module.exports = defineConfig({
 		requestTimeout: 10000,
 		responseTimeout: 40000,
 			setupNodeEvents(on, config) {
+				addMatchImageSnapshotPlugin(on, config);
 				// gerar JSON único do mochawesome e HTML agregado ao final da execução
 				on('after:run', async () => {
 					try {

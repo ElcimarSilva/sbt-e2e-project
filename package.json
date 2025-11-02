@@ -17,6 +17,7 @@
   "description": "",
   "devDependencies": {
     "@shelex/cypress-allure-plugin": "^2.41.2",
+    "@simonsmith/cypress-image-snapshot": "^10.0.2",
     "cypress": "^15.3.0",
     "cypress-multi-reporters": "^2.0.5",
     "lambdatest-cypress-cli": "^3.0.42",
