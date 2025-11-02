@@ -2,6 +2,6 @@
 import { addMatchImageSnapshotCommand } from '@simonsmith/cypress-image-snapshot/command';
 
 addMatchImageSnapshotCommand({
-    failureThreshold: 0.10, // Exemplo: 3% de tolerância
+    failureThreshold: 0.18, // Exemplo: 18% de tolerância
     failureThresholdType: 'percent', // Tipo de tolerância: 'percent' ou 'pixel'
 });

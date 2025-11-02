@@ -16,7 +16,9 @@ const {
   rellsCarrouselNavButtonLeft,
   rellsCarrouselNavButtonRight,
   headerSession,
-  liveButton
+  liveButton,
+  burgerHomeButton,
+  burgerMenuContainer
 } = require('../elements/homeElements');
 
 class HomePage {
@@ -102,6 +104,15 @@ class HomePage {
 
   getLiveButton() {
     return cy.get(liveButton);
+  }
+
+  // mobile functions
+  getBurgerHomeButton() {
+    return cy.get(burgerHomeButton);
+  }
+
+  getBurgerMenuContainer() {
+    return cy.get(burgerMenuContainer);
   }
 }
 

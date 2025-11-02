@@ -20,5 +20,8 @@ module.exports = {
   rellsCarrouselNavButtonLeft: '[aria-label="Scroll left"]',
   rellsCarrouselNavButtonRight: '[aria-label="Scroll right"]',
   headerSession: 'header',
-  liveButton: '[class="hidden md:flex px-4 py-2 rounded-full bg-white/10 text-gray-50 text-md items-center gap-2 hover:bg-white/15 transition-colors"]'
+  liveButton: '[class="hidden md:flex px-4 py-2 rounded-full bg-white/10 text-gray-50 text-md items-center gap-2 hover:bg-white/15 transition-colors"]',
+  // mobile selectors
+  burgerHomeButton: '[aria-label="Menu"]',
+  burgerMenuContainer: '[class="flex flex-col p-6 sm:landscape:pt-0 pb-20 gap-3"]'
 };
