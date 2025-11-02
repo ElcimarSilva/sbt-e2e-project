@@ -48,19 +48,21 @@ jobs:
 
       - name: Executar testes Cypress (Desktop)
         # Executa por padrão em pushes (inputs não existe) ou quando run_mobile_tests é false
-        if: ${{ github.event_name != 'workflow_dispatch' || !inputs.run_mobile_tests }}
+        if: ${{ github.event_name != 'workflow_dispatch' || github.event.inputs.run_mobile_tests != 'true' }}
         run: |
-          if [ "${{ inputs.config_file }}" = "cypress.config.js" ]; then
+          CONFIG_FILE="${{ github.event.inputs.config_file }}"
+          BROWSER="${{ github.event.inputs.browser }}"
+          if [ -z "$CONFIG_FILE" ] || [ "$CONFIG_FILE" = "cypress.config.js" ]; then
             npm run cy:run
           else
-            npx cypress run --browser ${{ inputs.browser }} --config-file=${{ inputs.config_file }}
+            npx cypress run --browser ${BROWSER:-chrome} --config-file="$CONFIG_FILE"
           fi
         env:
           CYPRESS_CACHE_FOLDER: ~/.cache/Cypress
 
       - name: Executar testes Cypress (Mobile)
         # Executa apenas quando trigger for manual (workflow_dispatch) e input run_mobile_tests for true
-        if: ${{ github.event_name == 'workflow_dispatch' && inputs.run_mobile_tests }}
+        if: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.run_mobile_tests == 'true' }}
         run: npm run cy:run:mobile
         env:
           CYPRESS_CACHE_FOLDER: ~/.cache/Cypress
@@ -96,3 +98,4 @@ jobs:
             echo "❌ Falha na execução dos testes"
             echo "📋 Verifique os logs nos artifacts"
           fi
+
