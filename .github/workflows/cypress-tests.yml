@@ -47,8 +47,8 @@ jobs:
         run: npx cypress verify
 
       - name: Executar testes Cypress (Desktop)
-        # Executa por padrão em pushes (inputs não existe) ou quando run_mobile_tests != 'true'
-        if: ${{ github.event_name != 'workflow_dispatch' || inputs.run_mobile_tests != 'true' }}
+        # Executa por padrão em pushes (inputs não existe) ou quando run_mobile_tests é false
+        if: ${{ github.event_name != 'workflow_dispatch' || !inputs.run_mobile_tests }}
         run: |
           if [ "${{ inputs.config_file }}" = "cypress.config.js" ]; then
             npm run cy:run
@@ -59,8 +59,8 @@ jobs:
           CYPRESS_CACHE_FOLDER: ~/.cache/Cypress
 
       - name: Executar testes Cypress (Mobile)
-        # Executa apenas quando trigger for manual (workflow_dispatch) e input run_mobile_tests for 'true'
-        if: ${{ github.event_name == 'workflow_dispatch' && inputs.run_mobile_tests == 'true' }}
+        # Executa apenas quando trigger for manual (workflow_dispatch) e input run_mobile_tests for true
+        if: ${{ github.event_name == 'workflow_dispatch' && inputs.run_mobile_tests }}
         run: npm run cy:run:mobile
         env:
           CYPRESS_CACHE_FOLDER: ~/.cache/Cypress
