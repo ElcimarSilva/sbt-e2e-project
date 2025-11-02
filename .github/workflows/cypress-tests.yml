@@ -4,6 +4,18 @@ on:
   push:
     branches:
       - main
+    inputs:
+      browser:
+        description: 'Navegador para executar os testes'
+        required: false
+        default: 'chrome'
+        options:
+          - chrome
+      config_file:
+        required: false
+        default: 'cypress.config.js'
+        type: string
+
   workflow_dispatch:
     inputs:
       browser:
