@@ -3,7 +3,6 @@
 
 module.exports = {
   imageMainContainer: '[class="w-full flex-1 order-1 mobile-landscape:order-2 md:order-2 relative"]',
-  imageMainContainer: '[class="w-full flex-1 order-1 mobile-landscape:order-2 md:order-2 relative"]',
   firstImageMainContainer: '[alt="Disney+ e SBT anunciam os técnicos e confirmam Tiago Leifert da temporada 2025 no The Voice Brasil"]',
   secondImageMainContainer: '[alt="Teste banner 2"] ',
   newsCard: '[class="border-b border-white/10 pb-6 last:border-0 last:pb-0"]',

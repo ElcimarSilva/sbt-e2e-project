@@ -34,6 +34,7 @@ cypress.config.js
 
 ## Boas práticas incluídas
 - Separação de testes por contexto/pasta (desktop/mobile)
+- Cada teste identificado por pagina e tipo
 - `viewport` configurável por config
 - Reporter consolidado (mochawesome) + vídeos/prints habilitados
 - Escrita de código em inglês e escrita apenas dos casos de testes em PT-BR
