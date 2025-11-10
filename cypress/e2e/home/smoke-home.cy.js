@@ -98,9 +98,11 @@ describe('Smoke tests on home page TheVoice', () => {
 
     it('Home - deve abrir a politica de privacidade', () => { //TODO: erro to new page load
         cy.intercept('GET', '**/politica-de-privacidade').as('getPolicy')
+        cy.intercept('GET', '**/content.sbt.com.br/api/medias?limit**').as('getMedias')
         cy.visit('https://www.sbt.com.br/politica-de-privacidade');
         cy.origin('https://www.sbt.com.br/politica-de-privacidade', () => {
             cy.wait('@getPolicy')
+            cy.wait('@getMedias')
             cy.url().should('include', 'https://www.sbt.com.br/politica-de-privacidade');
             cy.get('app-privacy-policy').should('be.visible');
             cy.get('#apolitica').should('be.visible').and('contain.text', 'POLÍTICA DE PRIVACIDADE');
