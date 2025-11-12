@@ -6,6 +6,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "cy:open": "cypress open",
     "cy:run": "cypress run --browser chrome",
+    "cy:run:only": "cypress run --browser chrome --spec cypress/e2e/home",
     "cy:run:headed": "cypress run --browser chrome --headed",
     "cy:run:mobile": "cypress run --browser chrome --headed  --config-file=mobile.config.js ",
     "cy:open:mobile": "cypress open --config-file=mobile.config.js ",
@@ -20,9 +21,14 @@
     "@simonsmith/cypress-image-snapshot": "^10.0.2",
     "cypress": "^15.3.0",
     "cypress-multi-reporters": "^2.0.5",
+    "dotenv": "^17.2.3",
     "lambdatest-cypress-cli": "^3.0.42",
     "mochawesome": "^7.1.4",
     "mochawesome-merge": "^5.0.0",
     "mochawesome-report-generator": "^6.3.0"
+  },
+  "dependencies": {
+    "form-data": "^4.0.4",
+    "node-fetch": "^3.3.2"
   }
 }
