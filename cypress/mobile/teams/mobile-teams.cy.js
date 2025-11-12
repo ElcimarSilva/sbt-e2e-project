@@ -1,5 +1,5 @@
 
-const teamsPage = require('../../cypress/support/pages/teamsPage');
+const teamsPage = require('../../support/pages/teamsPage');
 
 describe('Smoke tests on teams page TheVoice', () => {
 
@@ -9,7 +9,6 @@ describe('Smoke tests on teams page TheVoice', () => {
 
     it('Teams - deve verificar os principais elementos', () => {
         teamsPage.getTeamsBanner().should('be.visible');
-        //TODO: elemento de filtro de times é diff
     });
 
     it('Teams - deve verificar o layout, texto e link do card de cada time', () => {
@@ -19,9 +18,10 @@ describe('Smoke tests on teams page TheVoice', () => {
         teamsPage.getImageSession().find('a').should('be.visible').and('have.attr', 'href').and('match', /^(https?:\/\/)?(www\.)?(instagram\.com)\/.+$/);
     });
 
-    it.only('Teams - deve verificar o filtro por time', () => {
+    it('Teams - deve verificar o filtro por time', () => {
         teamsPage.getWhiteButtonFiltered().should('contain.text', 'Todos');
-        //TODO: elemento de filtro de times é diff
+        teamsPage.getMobileTeamsFilter().should('be.visible').click();
+        teamsPage.getMobileTeamsListFilter().should('be.visible').contains('Duda Beat').click();
         teamsPage.getWhiteButtonFiltered().should('contain.text', 'Duda Beat');
         teamsPage.getImageSession().find('.flex .flex-col').should('be.visible').and('have.length.gte', 2);
     });

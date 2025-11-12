@@ -3,7 +3,9 @@ const {
   filterSession,
   imageSession,
   whiteButtonFiltered,
-  teamsButtonFilter
+  teamsButtonFilter,
+  mobileTeamsFilter,
+  mobileTeamsListFilter,
 } = require('../elements/teamsElements');
 
 class TeamsPage {
@@ -29,6 +31,15 @@ class TeamsPage {
 
   getTeamsButtonFilter() {
     return cy.get(teamsButtonFilter);
+  }
+
+  // mobile functions
+  getMobileTeamsFilter() {
+    return cy.get(mobileTeamsFilter);
+  }
+
+  getMobileTeamsListFilter() {
+    return cy.get(mobileTeamsListFilter);
   }
 }
 

@@ -1,6 +1,6 @@
 
-const newsPage = require('../../cypress/support/pages/newsPage');
-const homePage = require('../../cypress/support/pages/homePage');
+const newsPage = require('../../support/pages/newsPage');
+const homePage = require('../../support/pages/homePage');
 
 describe('Smoke tests on news page TheVoice', () => {
 

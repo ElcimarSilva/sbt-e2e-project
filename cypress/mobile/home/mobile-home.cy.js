@@ -1,4 +1,4 @@
-const homePage = require('../support/pages/homePage');
+const homePage = require('../../support/pages/homePage');
 
 describe('Mobile - Tests on home page TheVoice', () => {
 

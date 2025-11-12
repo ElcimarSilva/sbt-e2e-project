@@ -6,5 +6,8 @@ module.exports = {
   filterSession: '[class="flex gap-3 min-w-max"]',
   imageSession: '[class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 landscape:lg:grid-cols-4 gap-4 sm:gap-12 md:gap-8"]',
   whiteButtonFiltered: '.border-white',
-  teamsButtonFilter: '[class="hidden sm:block"] [type="button"]'
+  teamsButtonFilter: '[class="hidden sm:block"] [type="button"]',
+  // mobile selectors
+  mobileTeamsFilter: '#teams-filter',
+  mobileTeamsListFilter: 'li',
 };
