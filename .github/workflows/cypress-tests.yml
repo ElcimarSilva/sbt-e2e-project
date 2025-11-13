@@ -30,6 +30,9 @@ jobs:
   cypress-tests:
     runs-on: ubuntu-latest
 
+    env:
+      CYPRESS_DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+
     steps:
       - name: Checkout código
         uses: actions/checkout@v4
