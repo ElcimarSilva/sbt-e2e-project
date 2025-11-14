@@ -21,9 +21,11 @@ const {
   burgerMenuContainer
 } = require('../elements/homeElements');
 
+const THE_VOICE_BASE_URL = 'https://thevoicebrasil.com.br/';
+
 class HomePage {
   visit() {
-    cy.visit('https://thevoice-dev.sbtlab.io/');
+    cy.visit(THE_VOICE_BASE_URL);
   }
 
   getImageMainContainer() {

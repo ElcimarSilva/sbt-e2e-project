@@ -1,8 +1,8 @@
 const { newsLabel, loadMoreNewsButton } = require('../elements/newsElements');
-
+const { THE_VOICE_BASE_URL } = require('../constants/utils');
 class NewsPage {
   visit() {
-    cy.visit('https://thevoice-dev.sbtlab.io/novidades');
+    cy.visit(THE_VOICE_BASE_URL + '/novidades');
   }
 
   getNewsLabel() {

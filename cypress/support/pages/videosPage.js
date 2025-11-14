@@ -1,8 +1,8 @@
 const { relatedVideosItens, mainSessionVideos, carrouselNextButton, carrouselPreviousButton, secondItemOnCarrousel, firstItemOnCarrousel } = require('../elements/videosElements');
-
+const { THE_VOICE_BASE_URL } = require('../constants/utils');
 class videosPage {
   visit() {
-    cy.visit('https://thevoice-dev.sbtlab.io/videos/');
+    cy.visit(THE_VOICE_BASE_URL + '/videos/');
   }
 
   getRelatedVideosItens() {

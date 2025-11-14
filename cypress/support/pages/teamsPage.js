@@ -8,9 +8,11 @@ const {
   mobileTeamsListFilter,
 } = require('../elements/teamsElements');
 
+const { THE_VOICE_BASE_URL } = require('../constants/utils');
+
 class TeamsPage {
   visit() {
-    cy.visit('https://thevoice-dev.sbtlab.io/times/');
+    cy.visit(THE_VOICE_BASE_URL + '/times/');
   }
 
   getTeamsBanner() {

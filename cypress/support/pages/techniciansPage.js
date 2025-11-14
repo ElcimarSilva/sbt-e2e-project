@@ -1,8 +1,8 @@
 const { layoutGrid, technicianCard, titleTopPage } = require('../elements/techniciansElements');
-
+const { THE_VOICE_BASE_URL } = require('../constants/utils');
 class TechniciansPage {
   visit() {
-    cy.visit('https://thevoice-dev.sbtlab.io/tecnicos');
+    cy.visit(THE_VOICE_BASE_URL + '/tecnicos');
   }
 
   getLayoutGrid() {
