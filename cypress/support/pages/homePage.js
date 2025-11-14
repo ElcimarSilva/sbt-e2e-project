@@ -21,7 +21,7 @@ const {
   burgerMenuContainer
 } = require('../elements/homeElements');
 
-const THE_VOICE_BASE_URL = 'https://thevoicebrasil.com.br/';
+const { THE_VOICE_BASE_URL } = require('../constants/utils');
 
 class HomePage {
   visit() {
