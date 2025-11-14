@@ -1,10 +1,9 @@
 
 const homePage = require('../../support/pages/homePage');
-const THE_VOICE_BASE_URL = require('../../support/constants/utils');
 describe('Tests on home page TheVoice', () => {
 
     beforeEach(() => {
-        cy.visit(THE_VOICE_BASE_URL);
+        homePage.visit();
     });
     it('deve verificar o direcionamento para TV Ao vivo', () => {
         homePage.getLiveButton().should('be.visible').and('have.attr', 'href', 'https://www.sbt.com.br/ao-vivo');
