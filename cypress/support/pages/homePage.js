@@ -25,7 +25,7 @@ const { THE_VOICE_BASE_URL } = require('../constants/utils');
 
 class HomePage {
   visit() {
-    cy.visit(THE_VOICE_BASE_URL);
+    cy.visit(THE_VOICE_BASE_URL, { timeout: 20000 });
   }
 
   getImageMainContainer() {

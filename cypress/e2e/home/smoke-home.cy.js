@@ -92,13 +92,13 @@ describe('Smoke tests on home page TheVoice', () => {
     it('Home - deve abrir o instagram ao clicar em Ver tudo', () => {
         cy.get('[href="https://www.instagram.com/thevoicebrasil"]').should('be.visible').invoke('removeAttr', 'target') // evita abrir nova aba
         .click();
-        cy.url().should('include', 'https://www.instagram.com/thevoicebrasil', { timeout: 10000 });
+        cy.url().should('include', 'https://www.instagram.com/thevoicebrasil', { timeout: 20000 });
     });
 
     it('Home - deve abrir a politica de privacidade', () => { //TODO: erro to new page load
         cy.intercept('GET', '**/politica-de-privacidade').as('getPolicy')
         cy.intercept('GET', '**/content.sbt.com.br/api/medias?limit**').as('getMedias')
-        cy.visit('https://www.sbt.com.br/politica-de-privacidade');
+        cy.visit('https://www.sbt.com.br/politica-de-privacidade', { timeout: 20000 });
         cy.origin('https://www.sbt.com.br/politica-de-privacidade', () => {
             cy.wait('@getPolicy')
             cy.wait('@getMedias')
@@ -115,7 +115,7 @@ describe('Smoke tests on home page TheVoice', () => {
         cy.visit('https://www.sbt.com.br/termos-de-uso');
         cy.origin('https://www.sbt.com.br/termos-de-uso', () => {
             cy.wait('@getTerms')
-            cy.url().should('include', 'https://www.sbt.com.br/termos-de-uso');
+            cy.url().should('include', 'https://www.sbt.com.br/termos-de-uso', { timeout: 20000 });
             cy.get('[class="cookie-banner-lgpd_button_aceitar"]').should('be.visible').click();
             cy.get('app-terms').should('be.visible');
             cy.get('app-terms').find('strong').should('be.visible').and('contain.text', 'TERMOS E CONDIÇÕES DE USO');

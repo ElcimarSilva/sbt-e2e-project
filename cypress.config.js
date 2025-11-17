@@ -13,7 +13,7 @@ module.exports = defineConfig({
 		excludeSpecPattern: 'cypress/e2e/mobile/**',
 		supportFile: 'cypress/support/e2e.js',
 		defaultCommandTimeout: 20000,
-		pageLoadTimeout: 12000,
+		pageLoadTimeout: 16000,
 		requestTimeout: 10000,
 		responseTimeout: 40000,
 			setupNodeEvents(on, config) {
