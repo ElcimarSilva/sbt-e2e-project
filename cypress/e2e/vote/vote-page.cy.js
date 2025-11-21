@@ -6,9 +6,21 @@ describe('Smoke tests on vote page TheVoice', () => {
         votePage.visit();
     });
 
-    it('Vote - deve verificar os principais elementos', () => {
-        cy.get('[aria-label="Votação"]').should('be.visible');
-        cy.get('[class="gradient-bg-diagonal w-full max-w-[700px] rounded-sm py-8 px-4 md:px-8 flex flex-col gap-8 md:gap-10 shadow-xl ring-1 ring-white/10"]').should('be.visible');
-        cy.get('.gradient-bg-diagonal .w-full').should('be.visible')
+    it('Vote - deve verificar a pagina de votação', () => {
+        cy.intercept('GET', '**/tecnicos/?_rsc=o1sbc').as('getTechnicians');
+        cy.intercept('GET', '**/novidades/?_rsc=o1sbc').as('getNews');
+        cy.intercept('GET', '**/times/?_rsc=o1sbc').as('getTeams');
+        cy.intercept('GET', '**/videos/?_rsc=o1sbc').as('getVideos');
+        cy.get('button').contains('Thiago').should('be.visible').click();
+        cy.wait('@getTechnicians');
+        cy.wait('@getNews');
+        cy.wait('@getTeams');
+        cy.wait('@getVideos');
+        cy.get('button').contains('Thiago').should('be.visible').click();
+        cy.get('button').contains('Entrar').should('be.visible').click();
+
+        cy.origin('https://conta.sbtlab.io', () => {
+            cy.get('h4').contains('Vamos entrar?').should('be.visible');
+        });
     });
 });
