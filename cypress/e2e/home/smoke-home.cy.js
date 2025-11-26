@@ -7,12 +7,14 @@ describe('Smoke tests on home page TheVoice', () => {
     });
 
     it('Home - deve verificar os principais elementos', () => {
-        cy.intercept('GET', '**/novidades/**').as('getNews');
-        cy.intercept('GET', '**/tecnicos/**').as('getTechnicians');
-        cy.intercept('GET', '**/times/**').as('getTeams');
+        cy.intercept('GET', '**/novidades/?_rsc=tujbn').as('getNews');
+        cy.intercept('GET', '**/tecnicos/?_rsc=tujbn').as('getTechnicians');
+        cy.intercept('GET', '**/times/?_rsc=tujbn').as('getTeams');
+        cy.intercept('GET', '**/videos/?_rsc=tujbn').as('getVideos');
         cy.wait('@getNews');
         cy.wait('@getTechnicians');
         cy.wait('@getTeams');
+        cy.wait('@getVideos')
 
         homePage.getHeaderSession().should('be.visible')
         homePage.getHeaderSession().should('contain.text', 'Home')
@@ -98,8 +100,8 @@ describe('Smoke tests on home page TheVoice', () => {
     it('Home - deve abrir a politica de privacidade', () => { //TODO: erro to new page load
         cy.intercept('GET', '**/politica-de-privacidade').as('getPolicy')
         cy.intercept('GET', '**/content.sbt.com.br/api/medias?limit**').as('getMedias')
-        cy.visit('https://www.sbt.com.br/politica-de-privacidade', { timeout: 20000 });
         cy.origin('https://www.sbt.com.br/politica-de-privacidade', () => {
+            cy.visit('https://www.sbt.com.br/politica-de-privacidade', { timeout: 20000 });
             cy.wait('@getPolicy')
             cy.wait('@getMedias')
             cy.url().should('include', 'https://www.sbt.com.br/politica-de-privacidade');
@@ -112,8 +114,8 @@ describe('Smoke tests on home page TheVoice', () => {
 
     it('Home - deve abrir os termos de uso', () => { //TODO: erro to new page load
         cy.intercept('GET', '**/termos-de-uso').as('getTerms')
-        cy.visit('https://www.sbt.com.br/termos-de-uso');
         cy.origin('https://www.sbt.com.br/termos-de-uso', () => {
+            cy.visit('https://www.sbt.com.br/termos-de-uso');
             cy.wait('@getTerms')
             cy.url().should('include', 'https://www.sbt.com.br/termos-de-uso', { timeout: 20000 });
             cy.get('[class="cookie-banner-lgpd_button_aceitar"]').should('be.visible').click();

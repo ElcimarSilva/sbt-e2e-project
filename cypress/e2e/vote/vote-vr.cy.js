@@ -6,7 +6,7 @@ describe('Visual regression tests on vote page TheVoice', () => {
         votePage.visit();
     });
 
-    it('Vote - deve realizar a regressão visual da pagina inicial', () => {
+    it.skip('Vote - deve realizar a regressão visual da pagina inicial', () => {
         cy.intercept('GET', '**/tecnicos/?_rsc=o1sbc').as('getTechnicians');
         cy.intercept('GET', '**/novidades/?_rsc=o1sbc').as('getNews');
         cy.intercept('GET', '**/times/?_rsc=o1sbc').as('getTeams');

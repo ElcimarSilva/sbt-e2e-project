@@ -1,6 +1,5 @@
 const {
   imageMainContainer,
-  firstImageMainContainer,
   secondImageMainContainer,
   newsCard,
   bannerTitle,
@@ -65,7 +64,7 @@ class HomePage {
   }
 
   getFirstImageMainContainer() {
-    return cy.get(firstImageMainContainer);
+    return cy.get(imageMainContainer);
   }
 
   getSecondImageMainContainer() {

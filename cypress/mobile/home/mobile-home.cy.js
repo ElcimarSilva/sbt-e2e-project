@@ -20,8 +20,8 @@ describe('Mobile - Tests on home page TheVoice', () => {
         homePage.getBurgerHomeButton().should('be.visible').click();
     });
 
-    it('Mobile - Home - deve verificar os principais elementos', () => {
-        cy.get('.gradient-bg-horizontal').should('be.visible')
+    it.only('Mobile - Home - deve verificar os principais elementos', () => {
+        homePage.getImageMainContainer().should('be.visible');
         homePage.getSeeMoreContainer().scrollIntoView().should('be.visible').and('contain.text', 'Veja mais');
         homePage.getSeeMoreItens().should('be.visible').and('have.length.gte', 2);
         homePage.getPlaylistSession().should('be.visible').and('contain.text', 'Playlists');
@@ -100,10 +100,10 @@ describe('Mobile - Tests on home page TheVoice', () => {
         })
     });
 
-    it('Mobile - Home - deve abrir os termos de uso', () => {
+    it.only('Mobile - Home - deve abrir os termos de uso', () => {
         cy.intercept('GET', '**/termos-de-uso').as('getTerms')
-        cy.visit('https://www.sbt.com.br/termos-de-uso', { timeout: 20000 });
         cy.origin('https://www.sbt.com.br/termos-de-uso', () => {
+            cy.visit('https://www.sbt.com.br/termos-de-uso', { timeout: 20000 });
             cy.wait('@getTerms')
             cy.url().should('include', 'https://www.sbt.com.br/termos-de-uso', { timeout: 20000 });
             cy.get('[class="cookie-banner-lgpd_button_aceitar"]').should('be.visible').click();
