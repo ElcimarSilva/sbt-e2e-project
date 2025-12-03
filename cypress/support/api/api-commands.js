@@ -1,3 +1,7 @@
+const CMS_API_TOKEN =  Cypress.env('CMS_API_TOKEN');
+const CMS_BASE_URL = Cypress.env('CMS_BASE_URL');
+const AUTH_BASE_URL = Cypress.env('AUTH_BASE_URL');
+
 /**
  * Custom commands para chamadas de API do CMS
  */
@@ -8,14 +12,11 @@
  * @returns {Cypress.Chainable} - Response da requisição
  */
 Cypress.Commands.add('getArticles', (queryParams = '') => {
-    const token = Cypress.env('CMS_API_TOKEN');
-    const baseUrl = Cypress.env('CMS_BASE_URL');
-
     return cy.request({
         method: 'GET',
-        url: `${baseUrl}/articles${queryParams}`,
+        url: `${CMS_BASE_URL}/articles${queryParams}`,
         headers: {
-            'Authorization': `Bearer ${token}`
+            'Authorization': `Bearer ${CMS_API_TOKEN}`
         }
     });
 });
@@ -25,14 +26,11 @@ Cypress.Commands.add('getArticles', (queryParams = '') => {
  * @returns {Cypress.Chainable} - Response da requisição
  */
 Cypress.Commands.add('getCategories', () => {
-    const token = Cypress.env('CMS_API_TOKEN');
-    const baseUrl = Cypress.env('CMS_BASE_URL');
-
     return cy.request({
         method: 'GET',
-        url: `${baseUrl}/categories`,
+        url: `${CMS_BASE_URL}/categories`,
         headers: {
-            'Authorization': `Bearer ${token}`
+            'Authorization': `Bearer ${CMS_API_TOKEN}`
         }
     });
 });
@@ -43,15 +41,13 @@ Cypress.Commands.add('getCategories', () => {
  * @returns {Cypress.Chainable} - Response da requisição
  */
 Cypress.Commands.add('getCoaches', (queryParams = '') => {
-    const token = Cypress.env('CMS_API_TOKEN');
-    const baseUrl = Cypress.env('CMS_BASE_URL');
 
     return cy.request({
         method: 'GET',
-        url: `${baseUrl}/coaches${queryParams}`,
+        url: `${CMS_BASE_URL}/coaches${queryParams}`,
         headers: {
             'User-Agent': 'insomnia/11.3.0',
-            'Authorization': `Bearer ${token}`
+            'Authorization': `Bearer ${CMS_API_TOKEN}`
         }
     });
 });
@@ -62,15 +58,12 @@ Cypress.Commands.add('getCoaches', (queryParams = '') => {
  * @returns {Cypress.Chainable} - Response da requisição
  */
 Cypress.Commands.add('getVideos', (queryParams = '') => {
-    const token = Cypress.env('CMS_API_TOKEN');
-    const baseUrl = Cypress.env('CMS_BASE_URL');
-
     return cy.request({
         method: 'GET',
-        url: `${baseUrl}/sbt-video-uploader/api-video-asset${queryParams}`,
+        url: `${CMS_BASE_URL}/sbt-video-uploader/api-video-asset${queryParams}`,
         headers: {
             'User-Agent': 'insomnia/11.3.0',
-            'Authorization': `Bearer ${token}`
+            'Authorization': `Bearer ${CMS_API_TOKEN}`
         }
     });
 });
@@ -80,15 +73,12 @@ Cypress.Commands.add('getVideos', (queryParams = '') => {
  * @returns {Cypress.Chainable} - Response da requisição
  */
 Cypress.Commands.add('getReels', () => {
-    const token = Cypress.env('CMS_API_TOKEN');
-    const baseUrl = Cypress.env('CMS_BASE_URL');
-
     return cy.request({
         method: 'GET',
-        url: `${baseUrl}/reels`,
+        url: `${CMS_BASE_URL}/reels`,
         headers: {
             'User-Agent': 'insomnia/11.3.0',
-            'Authorization': `Bearer ${token}`
+            'Authorization': `Bearer ${CMS_API_TOKEN}`
         }
     });
 });
@@ -98,15 +88,13 @@ Cypress.Commands.add('getReels', () => {
  * @returns {Cypress.Chainable} - Response da requisição
  */
 Cypress.Commands.add('getPlaylistsWithVideos', () => {
-    const token = Cypress.env('CMS_API_TOKEN');
-    const baseUrl = Cypress.env('CMS_BASE_URL');
 
     return cy.request({
         method: 'GET',
-        url: `${baseUrl}/playlists-with-videos`,
+        url: `${CMS_BASE_URL}/playlists-with-videos`,
         headers: {
             'User-Agent': 'insomnia/11.3.0',
-            'Authorization': `Bearer ${token}`
+            'Authorization': `Bearer ${CMS_API_TOKEN}`
         }
     });
 });
@@ -117,16 +105,14 @@ Cypress.Commands.add('getPlaylistsWithVideos', () => {
  * @returns {Cypress.Chainable} - Response da requisição
  */
 Cypress.Commands.add('getSingers', (populate = '') => {
-    const token = Cypress.env('CMS_API_TOKEN');
-    const baseUrl = Cypress.env('CMS_BASE_URL');
     const queryParams = populate ? `?populate=${populate}` : '';
 
     return cy.request({
         method: 'GET',
-        url: `${baseUrl}/singers${queryParams}`,
+        url: `${CMS_BASE_URL}/singers${queryParams}`,
         headers: {
             'User-Agent': 'insomnia/11.3.0',
-            'Authorization': `Bearer ${token}`
+            'Authorization': `Bearer ${CMS_API_TOKEN}`
         }
     });
 });
@@ -137,15 +123,13 @@ Cypress.Commands.add('getSingers', (populate = '') => {
  * @returns {Cypress.Chainable} - Response da requisição
  */
 Cypress.Commands.add('getHeroBanners', (queryParams = '') => {
-    const token = Cypress.env('CMS_API_TOKEN');
-    const baseUrl = Cypress.env('CMS_BASE_URL');
 
     return cy.request({
         method: 'GET',
-        url: `${baseUrl}/hero-banners${queryParams}`,
+        url: `${CMS_BASE_URL}/hero-banners${queryParams}`,
         headers: {
             'User-Agent': 'insomnia/11.3.0',
-            'Authorization': `Bearer ${token}`
+            'Authorization': `Bearer ${CMS_API_TOKEN}`
         }
     });
 });
@@ -155,11 +139,10 @@ Cypress.Commands.add('getHeroBanners', (queryParams = '') => {
  * @returns {Cypress.Chainable} - Response da requisição
  */
 Cypress.Commands.add('getHealth', () => {
-    const baseUrl = Cypress.env('AUTH_BASE_URL');
 
     return cy.request({
         method: 'GET',
-        url: `${baseUrl}/health`,
+        url: `${AUTH_BASE_URL}/health`,
         headers: {}
     });
 });
@@ -169,11 +152,10 @@ Cypress.Commands.add('getHealth', () => {
  * @returns {Cypress.Chainable} - Response da requisição
  */
 Cypress.Commands.add('getHealthDatabase', () => {
-    const baseUrl = Cypress.env('AUTH_BASE_URL');
 
     return cy.request({
         method: 'GET',
-        url: `${baseUrl}/health/database`,
+        url: `${AUTH_BASE_URL}/health/database`,
         headers: {}
     });
 });

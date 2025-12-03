@@ -1,4 +1,4 @@
-describe('Articles', () => {
+describe('API Tests', () => {
     beforeEach(() => {
         // Verifica se as variáveis de ambiente estão configuradas
         expect(Cypress.env('CMS_API_TOKEN'), 'CMS_API_TOKEN deve estar configurado').to.exist;
