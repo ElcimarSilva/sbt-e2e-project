@@ -166,7 +166,7 @@ describe('API Tests', () => {
     });
 
     it('Deve buscar artigo pelo slug', () => {
-        const slug = 'disney-e-sbt-anunciam-os-tecnicos-e-confirmam-tiago-leifert-da-temporada-2025-no-the-voice-brasil';
+        const slug = 'noticia-teste';
         cy.getArticles(`?filters[slug][$eq]=${slug}`).then((response) => {
             cy.log(JSON.stringify(response.body));
 
@@ -175,16 +175,14 @@ describe('API Tests', () => {
             expect(response.body).to.have.property('data');
             expect(response.body.data).to.be.an('array');
 
-            // Verifica se o artigo foi encontrado e tem o slug correto
-            if (response.body.data.length > 0) {
-                const article = response.body.data[0];
-                expect(article).to.have.property('id');
-                expect(article).to.have.property('attributes');
+            const article = response.body.data[0];
+            expect(article).to.have.property('id');
+            expect(article).to.have.property('title');
+            expect(article).to.have.property('slug');
+            expect(article).to.have.property('updatedAt');
+            expect(article).to.have.property('publishedAt');
 
-                if (article.attributes && article.attributes.slug) {
-                    expect(article.attributes.slug).to.eq(slug);
-                }
-            }
+            expect(article.slug).to.eq(slug);
         });
     });
 
