@@ -32,6 +32,9 @@ jobs:
 
     env:
       CYPRESS_DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+      CMS_API_TOKEN: ${{ secrets.CMS_API_TOKEN }}
+      CMS_BASE_URL: ${{ secrets.CMS_BASE_URL }}
+      AUTH_BASE_URL: ${{ secrets.AUTH_BASE_URL }}
 
     steps:
       - name: Checkout código
