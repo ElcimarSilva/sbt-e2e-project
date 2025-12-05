@@ -5,6 +5,83 @@
 npm install
 ```
 
+## Configuração de Variáveis de Ambiente
+
+### Desenvolvimento Local
+
+1. Copie o arquivo de exemplo:
+```bash
+cp cypress.env.json.example cypress.env.json
+```
+
+2. Edite o arquivo `cypress.env.json` com suas credenciais:
+```json
+{
+  "DISCORD_WEBHOOK_URL": "seu-webhook-aqui",
+  "CMS_API_TOKEN": "seu-token-cms-aqui",
+  "CMS_BASE_URL": "https://thevoice-cms-dev.sbtlab.io/api",
+  "AUTH_BASE_URL": "https://auth.sbtlab.io/api/v1",
+  "THE_VOICE_BASE_URL": "https://thevoicebrasil-dev.sbtlab.io"
+}
+```
+
+**⚠️ Importante:** O arquivo `cypress.env.json` está no `.gitignore` e não deve ser commitado no repositório.
+
+### GitHub Actions (CI/CD)
+
+No GitHub Actions, as variáveis de ambiente devem ser configuradas como **Secrets** do repositório e passadas com o prefixo `CYPRESS_`.
+
+#### Configuração dos Secrets no GitHub
+
+1. Vá em **Settings** → **Secrets and variables** → **Actions**
+2. Adicione os seguintes secrets:
+   - `CYPRESS_DISCORD_WEBHOOK_URL`
+   - `CYPRESS_CMS_API_TOKEN`
+   - `CYPRESS_CMS_BASE_URL`
+   - `CYPRESS_AUTH_BASE_URL`
+
+#### Exemplo de Workflow do GitHub Actions
+
+```yaml
+name: Cypress Tests
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  cypress-run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run Cypress tests
+        run: npm run cy:run
+        env:
+          CYPRESS_DISCORD_WEBHOOK_URL: ${{ secrets.CYPRESS_DISCORD_WEBHOOK_URL }}
+          CYPRESS_CMS_API_TOKEN: ${{ secrets.CYPRESS_CMS_API_TOKEN }}
+          CYPRESS_CMS_BASE_URL: ${{ secrets.CYPRESS_CMS_BASE_URL }}
+          CYPRESS_AUTH_BASE_URL: ${{ secrets.CYPRESS_AUTH_BASE_URL }}
+          CYPRESS_THE_VOICE_BASE_URL: ${{ secrets.CYPRESS_THE_VOICE_BASE_URL }}
+```
+
+#### Como Funciona
+
+- **Desenvolvimento:** As variáveis são carregadas do arquivo `cypress.env.json`
+- **GitHub Actions:** As variáveis são carregadas das variáveis de ambiente do sistema (com prefixo `CYPRESS_`)
+- **Prioridade:** Variáveis de ambiente do sistema têm prioridade sobre o arquivo `cypress.env.json`
+- **Validação:** O sistema valida se as variáveis obrigatórias estão configuradas e exibe mensagens de erro claras caso não estejam
+
 ## Scripts
 - `npm run cy:open`: abre o Cypress em modo interativo
 - `npm run cy:run`: executa headless
