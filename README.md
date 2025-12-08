@@ -19,9 +19,9 @@ cp cypress.env.json.example cypress.env.json
 {
   "DISCORD_WEBHOOK_URL": "seu-webhook-aqui",
   "CMS_API_TOKEN": "seu-token-cms-aqui",
-  "CMS_BASE_URL": "https://thevoice-cms-dev.sbtlab.io/api",
-  "AUTH_BASE_URL": "https://auth.sbtlab.io/api/v1",
-  "THE_VOICE_BASE_URL": "https://thevoicebrasil-dev.sbtlab.io"
+  "CMS_BASE_URL": "",
+  "AUTH_BASE_URL": "",
+  "THE_VOICE_BASE_URL": ""
 }
 ```
 
