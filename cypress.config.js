@@ -31,7 +31,8 @@ module.exports = defineConfig({
 			// Mescla variáveis de ambiente do sistema (com prefixo CYPRESS_) com as do cypress.env.json
 			// Variáveis de ambiente do sistema têm prioridade sobre o arquivo JSON
 			envVars.forEach(envVar => {
-				const envValue = process.env[`CYPRESS_${envVar}`];
+				// As variáveis já têm o prefixo CYPRESS_, então verificamos diretamente em process.env
+				const envValue = process.env[envVar];
 				if (envValue) {
 					config.env[envVar] = envValue;
 					console.log(`${envVar}: Carregado da variável de ambiente do sistema`);
