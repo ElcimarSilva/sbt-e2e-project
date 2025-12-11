@@ -2,7 +2,7 @@
 const videosPage = require('../../support/pages/videosPage');
 const homePage = require('../../support/pages/homePage');
 const { classActiveCarrouselButton, classInactiveCarrouselButton } = require('../../support/elements/videosElements');
-const { THE_VOICE_BASE_URL } = require('../../support/constants/utils');
+const { CYPRESS_THE_VOICE_BASE_URL } = require('../../support/constants/utils');
 
 describe('Smoke tests on videos page TheVoice', () => {
 
@@ -33,7 +33,7 @@ describe('Smoke tests on videos page TheVoice', () => {
     it('Videos - deve abrir um dos videos da sessão videos relacionados e verificar sua execução', () => {
         videosPage.getRelatedVideosItens().first().should('be.visible').click();
 
-        cy.url().should('include', THE_VOICE_BASE_URL + '/videos/');
+        cy.url().should('include', CYPRESS_THE_VOICE_BASE_URL + '/videos/');
         homePage.getVideoSessionPlaylist().should('be.visible')
         homePage.getVideoSessionPlaylist().find('youtube-video').should('be.visible').and('have.attr', 'src');
         homePage.getVideoSessionPlaylist().find('h2').should('be.visible').and('not.be.empty');

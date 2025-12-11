@@ -22,10 +22,10 @@ module.exports = defineConfig({
 			// Lista de variáveis de ambiente que devem ser carregadas
 			const envVars = [
 				'DISCORD_WEBHOOK_URL',
-				'CMS_API_TOKEN',
-				'CMS_BASE_URL',
-				'AUTH_BASE_URL',
-				'THE_VOICE_BASE_URL'
+				'CYPRESS_CMS_API_TOKEN',
+				'CYPRESS_CMS_BASE_URL',
+				'CYPRESS_AUTH_BASE_URL',
+				'CYPRESS_THE_VOICE_BASE_URL'
 			];
 
 			// Mescla variáveis de ambiente do sistema (com prefixo CYPRESS_) com as do cypress.env.json

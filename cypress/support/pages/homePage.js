@@ -20,11 +20,11 @@ const {
   burgerMenuContainer
 } = require('../elements/homeElements');
 
-const { THE_VOICE_BASE_URL } = require('../constants/utils');
+const { CYPRESS_THE_VOICE_BASE_URL } = require('../constants/utils');
 
 class HomePage {
   visit() {
-    cy.visit(THE_VOICE_BASE_URL, { timeout: 20000 });
+    cy.visit(CYPRESS_THE_VOICE_BASE_URL, { timeout: 20000 });
   }
 
   getImageMainContainer() {

@@ -1,9 +1,9 @@
 describe('API Tests', () => {
     beforeEach(() => {
         // Verifica se as variáveis de ambiente estão configuradas
-        expect(Cypress.env('CMS_API_TOKEN'), 'CMS_API_TOKEN deve estar configurado').to.exist;
-        expect(Cypress.env('CMS_BASE_URL'), 'CMS_BASE_URL deve estar configurado').to.exist;
-        expect(Cypress.env('AUTH_BASE_URL'), 'AUTH_BASE_URL deve estar configurado').to.exist;
+        expect(Cypress.env('CYPRESS_CMS_API_TOKEN'), 'CYPRESS_CMS_API_TOKEN deve estar configurado').to.exist;
+        expect(Cypress.env('CYPRESS_CMS_BASE_URL'), 'CYPRESS_CMS_BASE_URL deve estar configurado').to.exist;
+        expect(Cypress.env('CYPRESS_AUTH_BASE_URL'), 'CYPRESS_AUTH_BASE_URL deve estar configurado').to.exist;
     });
 
     it('Deve buscar os artigos via API do CMS', () => {

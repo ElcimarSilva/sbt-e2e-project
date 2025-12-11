@@ -8,11 +8,11 @@ const {
   mobileTeamsListFilter,
 } = require('../elements/teamsElements');
 
-const { THE_VOICE_BASE_URL } = require('../constants/utils');
+const { CYPRESS_THE_VOICE_BASE_URL } = require('../constants/utils');
 
 class TeamsPage {
   visit() {
-    cy.visit(THE_VOICE_BASE_URL + '/times/');
+    cy.visit(CYPRESS_THE_VOICE_BASE_URL + '/times/');
   }
 
   getTeamsBanner() {

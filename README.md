@@ -18,10 +18,10 @@ cp cypress.env.json.example cypress.env.json
 ```json
 {
   "DISCORD_WEBHOOK_URL": "seu-webhook-aqui",
-  "CMS_API_TOKEN": "seu-token-cms-aqui",
-  "CMS_BASE_URL": "",
-  "AUTH_BASE_URL": "",
-  "THE_VOICE_BASE_URL": ""
+  "CYPRESS_CMS_API_TOKEN": "seu-token-cms-aqui",
+  "CYPRESS_CMS_BASE_URL": "",
+  "CYPRESS_AUTH_BASE_URL": "",
+  "CYPRESS_THE_VOICE_BASE_URL": ""
 }
 ```
 
@@ -36,9 +36,9 @@ No GitHub Actions, as variáveis de ambiente devem ser configuradas como **Secre
 1. Vá em **Settings** → **Secrets and variables** → **Actions**
 2. Adicione os seguintes secrets:
    - `CYPRESS_DISCORD_WEBHOOK_URL`
-   - `CYPRESS_CMS_API_TOKEN`
-   - `CYPRESS_CMS_BASE_URL`
-   - `CYPRESS_AUTH_BASE_URL`
+   - `CYPRESS_CYPRESS_CMS_API_TOKEN`
+   - `CYPRESS_CYPRESS_CMS_BASE_URL`
+   - `CYPRESS_CYPRESS_AUTH_BASE_URL`
 
 #### Exemplo de Workflow do GitHub Actions
 
@@ -69,10 +69,10 @@ jobs:
         run: npm run cy:run
         env:
           CYPRESS_DISCORD_WEBHOOK_URL: ${{ secrets.CYPRESS_DISCORD_WEBHOOK_URL }}
-          CYPRESS_CMS_API_TOKEN: ${{ secrets.CYPRESS_CMS_API_TOKEN }}
-          CYPRESS_CMS_BASE_URL: ${{ secrets.CYPRESS_CMS_BASE_URL }}
-          CYPRESS_AUTH_BASE_URL: ${{ secrets.CYPRESS_AUTH_BASE_URL }}
-          CYPRESS_THE_VOICE_BASE_URL: ${{ secrets.CYPRESS_THE_VOICE_BASE_URL }}
+          CYPRESS_CYPRESS_CMS_API_TOKEN: ${{ secrets.CYPRESS_CYPRESS_CMS_API_TOKEN }}
+          CYPRESS_CYPRESS_CMS_BASE_URL: ${{ secrets.CYPRESS_CYPRESS_CMS_BASE_URL }}
+          CYPRESS_CYPRESS_AUTH_BASE_URL: ${{ secrets.CYPRESS_CYPRESS_AUTH_BASE_URL }}
+          CYPRESS_CYPRESS_THE_VOICE_BASE_URL: ${{ secrets.CYPRESS_CYPRESS_THE_VOICE_BASE_URL }}
 ```
 
 #### Como Funciona
