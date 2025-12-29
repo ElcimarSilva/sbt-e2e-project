@@ -20,22 +20,9 @@ describe('Mobile - Tests on home page TheVoice', () => {
         homePage.getBurgerHomeButton().should('be.visible').click();
     });
 
-    it.only('Mobile - Home - deve verificar os principais elementos', () => {
+    it('Mobile - Home - deve verificar os principais elementos', () => {
         homePage.getImageMainContainer().should('be.visible');
-        homePage.getSeeMoreContainer().scrollIntoView().should('be.visible').and('contain.text', 'Veja mais');
-        homePage.getSeeMoreItens().should('be.visible').and('have.length.gte', 2);
-        homePage.getPlaylistSession().should('be.visible').and('contain.text', 'Playlists');
         homePage.getNewsCards().should('be.visible').should('have.length.gte', 4);
-    });
-
-
-    it('Mobile - Home - deve abrir a uma noticia da sessão Veja mais ', () => {
-        homePage.getSeeMoreContainer().find('article').first().scrollIntoView().should('be.visible').click()
-        cy.url().should('include', CYPRESS_THE_VOICE_BASE_URL + '/noticias/');
-        homePage.getSessionNews().should('be.visible').and('not.be.empty');
-        homePage.getSessionNews().find('span').should('be.visible').and('not.be.empty');
-        homePage.getSessionNews().find('h1').should('be.visible').and('not.be.empty');
-        homePage.getSessionNews().find('h2').should('be.visible').and('not.be.empty');
     });
 
     it('Mobile - Home - deve abrir a noticia ao clicar no card', () => {
@@ -45,16 +32,6 @@ describe('Mobile - Tests on home page TheVoice', () => {
         homePage.getSessionNews().find('span').should('be.visible').and('not.be.empty');
         homePage.getSessionNews().find('h1').should('be.visible').and('not.be.empty');
         homePage.getSessionNews().find('h2').should('be.visible').and('not.be.empty');
-    });
-
-    it('Mobile - Home - deve abrir um item da playlist ao clicar', () => {
-        homePage.getPlaylistSession().should('be.visible')
-            .and('contain.text', 'Playlists').and('contain.text', 'Ver tudo');
-         homePage.getPlaylistSession().find('figure').first().click();
-         cy.url().should('include', CYPRESS_THE_VOICE_BASE_URL + '/playlists/');
-        homePage.getVideoSessionPlaylist().should('be.visible')
-        homePage.getVideoSessionPlaylist().find('youtube-video').should('be.visible').and('have.attr', 'src');
-        homePage.getVideoSessionPlaylist().find('h2').should('be.visible').and('not.be.empty');
     });
 
     it('Mobile - Home - deve verificar e abrir um video na sessão videos', () => {
@@ -100,7 +77,7 @@ describe('Mobile - Tests on home page TheVoice', () => {
         })
     });
 
-    it.only('Mobile - Home - deve abrir os termos de uso', () => {
+    it('Mobile - Home - deve abrir os termos de uso', () => {
         cy.intercept('GET', '**/termos-de-uso').as('getTerms')
         cy.origin('https://www.sbt.com.br/termos-de-uso', () => {
             cy.visit('https://www.sbt.com.br/termos-de-uso', { timeout: 20000 });

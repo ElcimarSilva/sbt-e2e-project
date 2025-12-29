@@ -1,13 +1,9 @@
 const {
   imageMainContainer,
-  secondImageMainContainer,
   newsCard,
   bannerTitle,
-  bannerNext,
   allNews,
-  seeMoreContainer,
   seeMoreItens,
-  playlistSession,
   newsSession,
   videoSessionPlaylist,
   videoSession,
@@ -39,10 +35,6 @@ class HomePage {
     return cy.get(bannerTitle);
   }
 
-  clickBannerNext() {
-    return cy.get(bannerNext).click();
-  }
-
   clickFirstNewsImage() {
     return cy.get(allNews).first().click();
   }
@@ -51,24 +43,12 @@ class HomePage {
     return cy.get(allNews);
   }
 
-  getSeeMoreContainer() {
-    return cy.get(seeMoreContainer);
-  }
-
   getSeeMoreItens() {
     return cy.get(seeMoreItens);
   }
 
-  getPlaylistSession() {
-    return cy.get(playlistSession);
-  }
-
   getFirstImageMainContainer() {
     return cy.get(imageMainContainer);
-  }
-
-  getSecondImageMainContainer() {
-    return cy.get(secondImageMainContainer);
   }
 
   getSessionNews() {

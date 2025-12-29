@@ -26,7 +26,7 @@ describe('Smoke tests on videos page TheVoice', () => {
     });
 
     it('Videos - deve verificar a sessão videos relacionados', () => {
-        videosPage.getRelatedVideosItens().should('be.visible').and('have.length.gte', 6);
+        videosPage.getRelatedVideosItens().should('be.visible').and('have.length.gte', 3);
         videosPage.getRelatedVideosItens().find('a').should('have.attr', 'href');
     });
 

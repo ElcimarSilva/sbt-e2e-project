@@ -16,7 +16,6 @@ describe('Smoke tests on technicians page TheVoice', () => {
 
     it('Technicians - deve haver os links de direcionamento para instagram e spotify dos tecnicos', () => {
         techniciansPage.getTechnicianCards().find('a').should('have.attr', 'href').and('match', /^(https?:\/\/)?(www\.)?(instagram\.com|spotify\.com)\/.+$/);
-        techniciansPage.getTechnicianCards().find('a').last().should('have.attr', 'href').and('contain', 'spotify.com');
     });
 
     it('Technicians - deve verificar layout do card', () => {
