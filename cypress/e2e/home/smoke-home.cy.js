@@ -88,7 +88,7 @@ describe('Smoke tests on home page TheVoice', () => {
 
     });
 
-    it.only('Home - deve abrir os termos de uso', () => {
+    it('Home - deve abrir os termos de uso', () => {
         cy.intercept('GET', '**/termos-de-uso').as('getTerms')
         cy.origin('https://www.sbt.com.br/termos-de-uso', () => {
             cy.visit('https://www.sbt.com.br/termos-de-uso');
