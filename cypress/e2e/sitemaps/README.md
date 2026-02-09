@@ -1,0 +1,1 @@
+Folder for Sitemaps specs. Add @smoke checks for sitemap.xml endpoints (200 + basic URL presence).

@@ -5,11 +5,14 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "cy:open": "cypress open",
-    "cy:run": "cypress run --browser chrome",
+    "cy:run": "cypress run --browser electron",
+    "cy:run:smoke": "cypress run --browser electron --spec 'cypress/e2e/smoke/**/*.cy.js'",
+    "cy:run:ui-smoke": "cypress run --browser electron --spec 'cypress/e2e/ui-smoke/**/*.cy.js'",
     "cy:run:only": "cypress run --browser chrome --spec cypress/e2e/api",
-    "cy:run:headed": "cypress run --browser chrome --headed",
+    "cy:run:headed": "cypress run --browser electron --headed",
     "cy:run:mobile": "cypress run --browser chrome --config-file=mobile.config.js ",
     "cy:open:mobile": "cypress open --config-file=mobile.config.js ",
+    "cy:run:ci": "cypress run --browser chrome --reporter cypress-multi-reporters",
     "cy:lambdatest": "lambdatest-cypress run"
   },
   "keywords": [],
@@ -17,6 +20,7 @@
   "license": "ISC",
   "description": "",
   "devDependencies": {
+    "@cypress/grep": "^4.0.3",
     "@shelex/cypress-allure-plugin": "^2.41.2",
     "@simonsmith/cypress-image-snapshot": "^10.0.2",
     "cypress": "^15.3.0",
@@ -25,7 +29,8 @@
     "lambdatest-cypress-cli": "^3.0.42",
     "mochawesome": "^7.1.4",
     "mochawesome-merge": "^5.0.0",
-    "mochawesome-report-generator": "^6.3.0"
+    "mochawesome-report-generator": "^6.3.0",
+    "mocha-junit-reporter": "^2.2.1"
   },
   "dependencies": {
     "form-data": "^4.0.4",

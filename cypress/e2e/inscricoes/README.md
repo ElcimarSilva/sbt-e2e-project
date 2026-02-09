@@ -1,0 +1,1 @@
+Folder for Inscrições specs (new app). Add @smoke coverage for wrapper presence (placeholder acceptable).

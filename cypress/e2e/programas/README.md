@@ -1,0 +1,1 @@
+Folder for Programas specs (new app). Add @smoke coverage for programs grid and detail header.

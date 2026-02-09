@@ -1,8 +1,7 @@
-const { newsLabel, loadMoreNewsButton } = require('../elements/newsElements');
-const { CYPRESS_THE_VOICE_BASE_URL } = require('../constants/utils');
+const { newsLabel, loadMoreNewsButton } = require("../elements/newsElements");
 class NewsPage {
   visit() {
-    cy.visit(CYPRESS_THE_VOICE_BASE_URL + '/novidades');
+    cy.visit("/noticias");
   }
 
   getNewsLabel() {

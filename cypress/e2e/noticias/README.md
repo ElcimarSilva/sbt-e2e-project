@@ -1,0 +1,1 @@
+Folder for Notícias specs (new app). Add @smoke coverage for list and article detail using data-testid selectors.

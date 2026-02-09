@@ -1,0 +1,1 @@
+Folder for Resultados specs (new app). Add @smoke coverage for wrapper presence (placeholder acceptable).

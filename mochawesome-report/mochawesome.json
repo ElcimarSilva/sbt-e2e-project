@@ -28,7 +28,7 @@
       "suites": [
         {
           "uuid": "baba5ff7-8eb5-40cf-91ab-1ec6d2c50309",
-          "title": "Smoke tests on news page TheVoice",
+          "title": "Smoke tests on news page SBT TV",
           "fullFile": "",
           "file": "",
           "beforeHooks": [],
@@ -36,7 +36,7 @@
           "tests": [
             {
               "title": "deve verificar os principais elementos",
-              "fullTitle": "Smoke tests on news page TheVoice deve verificar os principais elementos",
+              "fullTitle": "Smoke tests on news page SBT TV deve verificar os principais elementos",
               "timedOut": null,
               "duration": 995,
               "state": "passed",
@@ -54,9 +54,7 @@
             }
           ],
           "suites": [],
-          "passes": [
-            "7a5d16b7-dfca-4ebb-be19-2e7512e56365"
-          ],
+          "passes": ["7a5d16b7-dfca-4ebb-be19-2e7512e56365"],
           "failures": [],
           "pending": [],
           "skipped": [],

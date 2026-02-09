@@ -1,8 +1,14 @@
-const { relatedVideosItens, mainSessionVideos, carrouselNextButton, carrouselPreviousButton, secondItemOnCarrousel, firstItemOnCarrousel } = require('../elements/videosElements');
-const { CYPRESS_THE_VOICE_BASE_URL } = require('../constants/utils');
+const {
+  relatedVideosItens,
+  mainSessionVideos,
+  carrouselNextButton,
+  carrouselPreviousButton,
+  secondItemOnCarrousel,
+  firstItemOnCarrousel,
+} = require("../elements/videosElements");
 class videosPage {
   visit() {
-    cy.visit(CYPRESS_THE_VOICE_BASE_URL + '/videos/');
+    cy.visit("/videos/");
   }
 
   getRelatedVideosItens() {
@@ -28,6 +34,5 @@ class videosPage {
   getFirstItemOnCarrousel() {
     return cy.get(firstItemOnCarrousel);
   }
-
 }
 module.exports = new videosPage();

@@ -1,0 +1,1 @@
+Folder for Podcasts specs (new app). Add @smoke coverage for list and play CTA.

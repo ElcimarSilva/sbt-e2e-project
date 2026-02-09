@@ -13,19 +13,17 @@ const {
   headerSession,
   liveButton,
   burgerHomeButton,
-  burgerMenuContainer
-} = require('../elements/homeElements');
-
-const { CYPRESS_THE_VOICE_BASE_URL } = require('../constants/utils');
+  burgerMenuContainer,
+} = require("../elements/homeElements");
 
 class HomePage {
   visit() {
-    cy.visit(CYPRESS_THE_VOICE_BASE_URL, { timeout: 20000 });
+    cy.visit("/", { timeout: 20000 });
   }
 
   getImageMainContainer() {
     return cy.get(imageMainContainer);
-  };
+  }
 
   getNewsCards() {
     return cy.get(newsCard);
@@ -80,7 +78,7 @@ class HomePage {
   }
 
   getHeaderSession() {
-    return cy.get(headerSession).find('nav a');
+    return cy.get(headerSession).find("nav a");
   }
 
   getLiveButton() {

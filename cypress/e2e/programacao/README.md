@@ -1,0 +1,1 @@
+Folder for Programação specs (new app). Add @smoke coverage for schedule list and card presence.

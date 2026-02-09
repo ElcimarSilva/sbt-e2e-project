@@ -1,19 +1,19 @@
+const homePage = require("../../support/pages/homePage");
+describe("Tests on home page SBT TV", () => {
+  beforeEach(() => {
+    homePage.visit();
+  });
+  it("deve verificar o direcionamento para TV Ao vivo", () => {
+    homePage
+      .getLiveButton()
+      .should("be.visible")
+      .and("have.attr", "href", "https://www.sbt.com.br/ao-vivo");
 
-const homePage = require('../../support/pages/homePage');
-describe('Tests on home page TheVoice', () => {
-
-    beforeEach(() => {
-        homePage.visit();
+    cy.visit("https://www.sbt.com.br/ao-vivo", { timeout: 20000 });
+    cy.origin("https://www.sbt.com.br/ao-vivo", () => {
+      cy.get('[class="cookie-banner-lgpd_button_aceitar"]').click();
+      cy.get('[class="live-video"]').should("be.visible");
+      cy.get('[class="live-video"]').find("iframe").should("have.attr", "src");
     });
-    it('deve verificar o direcionamento para TV Ao vivo', () => {
-        homePage.getLiveButton().should('be.visible').and('have.attr', 'href', 'https://www.sbt.com.br/ao-vivo');
-
-        cy.visit('https://www.sbt.com.br/ao-vivo', { timeout: 20000 });
-        cy.origin('https://www.sbt.com.br/ao-vivo', () => {
-            cy.get('[class="cookie-banner-lgpd_button_aceitar"]').click();
-            cy.get('[class="live-video"]').should('be.visible')
-            cy.get('[class="live-video"]').find('iframe').should('have.attr', 'src');
-        });
-
-    });
+  });
 });
