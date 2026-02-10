@@ -34,3 +34,17 @@ Cypress.Commands.add("waitForPage", (ms) => {
   const delay = Number(ms ?? Cypress.env("E2E_DELAY_MS") ?? 1500);
   cy.wait(delay, { log: true });
 });
+
+// Bloquear requests de anúncios e imagens pesadas durante os testes para reduzir uso de memória
+beforeEach(() => {
+  cy.intercept(
+    { url: /.*safeframe\.googlesyndication\.com.*/ },
+    { statusCode: 204 },
+  );
+  cy.intercept(
+    { url: /.*googleads\.g\.doubleclick\.net.*/ },
+    { statusCode: 204 },
+  );
+  cy.intercept({ url: /.*img\.youtube\.com.*/ }, { body: "" });
+  cy.intercept({ url: /.*i\.ytimg\.com.*/ }, { body: "" });
+});
