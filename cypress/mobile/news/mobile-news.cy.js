@@ -1,6 +1,6 @@
 const newsPage = require("../../support/pages/newsPage");
 const homePage = require("../../support/pages/homePage");
-const { CYPRESS_THE_VOICE_BASE_URL } = require("../../support/constants/utils");
+const { CYPRESS_SBT_TV_BASE_URL } = require("../../support/constants/utils");
 
 describe("Smoke tests on news page SBT TV", () => {
   beforeEach(() => {
@@ -13,7 +13,7 @@ describe("Smoke tests on news page SBT TV", () => {
 
   it("Mobile - News - deve abrir a noticia ao clicar no card", () => {
     homePage.clickFirstNewsImage();
-    cy.url().should("include", CYPRESS_THE_VOICE_BASE_URL + "/noticias/");
+    cy.url().should("include", CYPRESS_SBT_TV_BASE_URL + "/noticias/");
     homePage.getSessionNews().should("be.visible").and("not.be.empty");
     homePage
       .getSessionNews()

@@ -4,7 +4,7 @@ const {
   classActiveCarrouselButton,
   classInactiveCarrouselButton,
 } = require("../../support/elements/videosElements");
-const { CYPRESS_THE_VOICE_BASE_URL } = require("../../support/constants/utils");
+const { CYPRESS_SBT_TV_BASE_URL } = require("../../support/constants/utils");
 
 describe("Smoke tests on videos page SBT TV", () => {
   beforeEach(() => {
@@ -56,7 +56,7 @@ describe("Smoke tests on videos page SBT TV", () => {
   it("Videos - deve abrir um dos videos da sessão videos relacionados e verificar sua execução", () => {
     videosPage.getRelatedVideosItens().first().should("be.visible").click();
 
-    cy.url().should("include", CYPRESS_THE_VOICE_BASE_URL + "/videos/");
+    cy.url().should("include", CYPRESS_SBT_TV_BASE_URL + "/videos/");
     homePage.getVideoSessionPlaylist().should("be.visible");
     homePage
       .getVideoSessionPlaylist()

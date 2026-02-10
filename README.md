@@ -18,10 +18,7 @@ cp cypress.env.json.example cypress.env.json
 ```json
 {
   "DISCORD_WEBHOOK_URL": "seu-webhook-aqui",
-  "CYPRESS_CMS_API_TOKEN": "seu-token-cms-aqui",
-  "CYPRESS_CMS_BASE_URL": "",
-  "CYPRESS_AUTH_BASE_URL": "",
-  "CYPRESS_THE_VOICE_BASE_URL": ""
+  "CYPRESS_SBT_TV_BASE_URL": ""
 }
 ```
 
@@ -72,7 +69,7 @@ jobs:
           CYPRESS_CYPRESS_CMS_API_TOKEN: ${{ secrets.CYPRESS_CYPRESS_CMS_API_TOKEN }}
           CYPRESS_CYPRESS_CMS_BASE_URL: ${{ secrets.CYPRESS_CYPRESS_CMS_BASE_URL }}
           CYPRESS_CYPRESS_AUTH_BASE_URL: ${{ secrets.CYPRESS_CYPRESS_AUTH_BASE_URL }}
-          CYPRESS_CYPRESS_THE_VOICE_BASE_URL: ${{ secrets.CYPRESS_CYPRESS_THE_VOICE_BASE_URL }}
+          CYPRESS_CYPRESS_SBT_TV_BASE_URL: ${{ secrets.CYPRESS_CYPRESS_SBT_TV_BASE_URL }}
 ```
 
 #### Como Funciona

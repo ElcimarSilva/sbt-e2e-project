@@ -32,10 +32,7 @@ module.exports = defineConfig({
       // Lista de variáveis de ambiente que devem ser carregadas
       const envVars = [
         "DISCORD_WEBHOOK_URL",
-        "CYPRESS_CMS_API_TOKEN",
-        "CYPRESS_CMS_BASE_URL",
-        "CYPRESS_AUTH_BASE_URL",
-        "CYPRESS_THE_VOICE_BASE_URL",
+        "CYPRESS_SBT_TV_BASE_URL",
         "CYPRESS_BASE_URL",
       ];
 

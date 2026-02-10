@@ -1,5 +1,5 @@
 const homePage = require("../../support/pages/homePage");
-const { CYPRESS_THE_VOICE_BASE_URL } = require("../../support/constants/utils");
+const { CYPRESS_SBT_TV_BASE_URL } = require("../../support/constants/utils");
 describe("Smoke tests on home page SBT TV", { tags: ["@smoke"] }, () => {
   beforeEach(() => {
     homePage.visit();

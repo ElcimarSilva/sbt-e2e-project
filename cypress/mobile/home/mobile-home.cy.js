@@ -1,5 +1,5 @@
 const homePage = require("../../support/pages/homePage");
-const { CYPRESS_THE_VOICE_BASE_URL } = require("../../support/constants/utils");
+const { CYPRESS_SBT_TV_BASE_URL } = require("../../support/constants/utils");
 
 describe("Mobile - Tests on home page SBT TV", () => {
   beforeEach(() => {
@@ -50,7 +50,7 @@ describe("Mobile - Tests on home page SBT TV", () => {
 
   it("Mobile - Home - deve abrir a noticia ao clicar no card", () => {
     homePage.clickFirstNewsImage();
-    cy.url().should("include", CYPRESS_THE_VOICE_BASE_URL + "/noticias/");
+    cy.url().should("include", CYPRESS_SBT_TV_BASE_URL + "/noticias/");
     homePage.getSessionNews().should("be.visible").and("not.be.empty");
     homePage
       .getSessionNews()
@@ -89,7 +89,7 @@ describe("Mobile - Tests on home page SBT TV", () => {
       .first()
       .should("be.visible")
       .click();
-    cy.url().should("include", CYPRESS_THE_VOICE_BASE_URL + "/videos/");
+    cy.url().should("include", CYPRESS_SBT_TV_BASE_URL + "/videos/");
     homePage.getVideoSessionPlaylist().should("be.visible");
     homePage
       .getVideoSessionPlaylist()

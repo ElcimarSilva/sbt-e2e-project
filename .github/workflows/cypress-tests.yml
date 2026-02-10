@@ -1,30 +1,30 @@
 name: Cypress E2E Tests
 
 on:
-    workflow_dispatch:
-      inputs:
-        browser:
-          description: 'Navegador para executar os testes'
-          required: false
-          default: 'chrome'
-          type: choice
-          options:
-            - chrome
-            - firefox
-            - edge
-        config_file:
-          description: 'Arquivo de configuração específico'
-          required: false
-          default: 'cypress.config.js'
-          type: string
-        run_mobile_tests:
-          description: 'Executar testes mobile'
-          required: false
-          default: false
-          type: boolean
-    push:
-      branches:
-        - main
+  workflow_dispatch:
+    inputs:
+      browser:
+        description: "Navegador para executar os testes"
+        required: false
+        default: "chrome"
+        type: choice
+        options:
+          - chrome
+          - firefox
+          - edge
+      config_file:
+        description: "Arquivo de configuração específico"
+        required: false
+        default: "cypress.config.js"
+        type: string
+      run_mobile_tests:
+        description: "Executar testes mobile"
+        required: false
+        default: false
+        type: boolean
+  push:
+    branches:
+      - main
 
 jobs:
   cypress-tests:
@@ -32,10 +32,7 @@ jobs:
 
     env:
       CYPRESS_DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
-      CYPRESS_CMS_API_TOKEN: ${{ secrets.CYPRESS_CMS_API_TOKEN }}
-      CYPRESS_CMS_BASE_URL: ${{ secrets.CYPRESS_CMS_BASE_URL }}
-      CYPRESS_AUTH_BASE_URL: ${{ secrets.CYPRESS_AUTH_BASE_URL }}
-      CYPRESS_THE_VOICE_BASE_URL: ${{ secrets.CYPRESS_THE_VOICE_BASE_URL }}
+      CYPRESS_SBT_TV_BASE_URL: ${{ secrets.CYPRESS_SBT_TV_BASE_URL }}
 
     steps:
       - name: Checkout código
@@ -44,8 +41,8 @@ jobs:
       - name: Configurar Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '22'
-          cache: 'npm'
+          node-version: "22"
+          cache: "npm"
 
       - name: Instalar dependências
         run: npm ci
@@ -105,4 +102,3 @@ jobs:
             echo "❌ Falha na execução dos testes"
             echo "📋 Verifique os logs nos artifacts"
           fi
-
